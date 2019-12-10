@@ -29,9 +29,13 @@ public class ActivityEnvparametros extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View v) {
+        Bundle bundle =  new Bundle();
         Intent intent = new Intent(ActivityEnvparametros.this, Activity_Recibirparametros.class);
-        intent.putExtra("nombre",cajanombre.getText()+"");
-        intent.putExtra("apellido",cajaApellido.getText()+"");
+        //intent.putExtra("nombre",cajanombre.getText()+"");
+        //intent.putExtra("apellido",cajaApellido.getText()+"");
+        bundle.putString("nombre",cajanombre.getText()+"");
+        bundle.putString("apellido",cajaApellido.getText()+"");
+        intent.putExtras(bundle);
         startActivity(intent);
 
     }
