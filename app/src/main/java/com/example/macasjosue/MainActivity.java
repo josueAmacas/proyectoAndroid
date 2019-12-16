@@ -81,9 +81,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(MainActivity.this,fragmento.class);
                 startActivity(intent);
                 break;
+            case R.id.opcionEscucha:
+                intent = new Intent(MainActivity.this,ActivityFragment2.class);
+                startActivity(intent);
+                break;
 
         }
-
         return true;
     }
 }

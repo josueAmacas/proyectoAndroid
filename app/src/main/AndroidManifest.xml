@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".fragmento"></activity>
+        <activity android:name=".ActivityFragment2">
+
+        </activity>
+        <activity
+            android:name=".ActivityNavigationdrawer"
+            android:label="@string/title_activity_navigationdrawer"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".fragmento" />
         <activity android:name=".Activity_Recibirparametros" />
         <activity android:name=".ActivityEnvparametros" />
         <activity android:name=".ActivitySuma" />

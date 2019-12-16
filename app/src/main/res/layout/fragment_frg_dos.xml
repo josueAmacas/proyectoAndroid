@@ -18,7 +18,8 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="  -  " />
+        android:text="                  -  "
+        android:textSize="36sp" />
 
     <EditText
         android:id="@+id/txtN2Frg2"
