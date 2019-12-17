@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ActivitySuma">
+    tools:context=".Vista.actividades.ActivitySuma">
 
     <LinearLayout
         android:layout_width="match_parent"

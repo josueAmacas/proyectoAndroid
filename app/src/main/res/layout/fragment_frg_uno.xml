@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:background="@color/colorPrimaryDark"
-    tools:context=".FrgUno">
+    tools:context=".Vista.fragmentos.FrgUno">
 
     <EditText
         android:id="@+id/txtN1Frg1"

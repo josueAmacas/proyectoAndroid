@@ -9,26 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityFragment2">
-
-        </activity>
+        <activity android:name=".Vista.actividades.ActivityRecyclerartistas"></activity>
+        <activity android:name=".Vista.actividades.ActivityFragment2"></activity>
         <activity
             android:name=".ActivityNavigationdrawer"
             android:label="@string/title_activity_navigationdrawer"
             android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".fragmento" />
-        <activity android:name=".Activity_Recibirparametros" />
-        <activity android:name=".ActivityEnvparametros" />
-        <activity android:name=".ActivitySuma" />
-        <activity android:name=".ActivityLogin" />
-        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Vista.fragmentos.fragmento" />
+        <activity android:name=".Vista.actividades.Activity_Recibirparametros" />
+        <activity android:name=".Vista.actividades.ActivityEnvparametros" />
+        <activity android:name=".Vista.actividades.ActivitySuma" />
+        <activity android:name=".Vista.actividades.ActivityLogin" />
+        <activity android:name=".MainActivity">
+
         </activity>
     </application>
 

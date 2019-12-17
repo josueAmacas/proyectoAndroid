@@ -1,36 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorAccent"
-    tools:context=".Vista.fragmentos.frgDos">
+    android:orientation="vertical">
+
 
     <EditText
-        android:id="@+id/txtN1Frg2"
+        android:id="@+id/txtN1Dlg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="                  -  "
-        android:textSize="36sp" />
-
     <EditText
-        android:id="@+id/txtN2Frg2"
+        android:id="@+id/txtN2Dlg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number" />
 
     <Button
-        android:id="@+id/btnRestarFrg2"
+        android:id="@+id/btnSumarDlg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Restar" />
+        android:text="Sumar" />
 </LinearLayout>

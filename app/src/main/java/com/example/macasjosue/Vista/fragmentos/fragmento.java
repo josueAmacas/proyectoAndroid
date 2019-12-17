@@ -1,4 +1,4 @@
-package com.example.macasjosue;
+package com.example.macasjosue.Vista.fragmentos;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.macasjosue.R;
 
 public class fragmento extends AppCompatActivity implements View.OnClickListener, FrgUno.OnFragmentInteractionListener, frgDos.OnFragmentInteractionListener {
 

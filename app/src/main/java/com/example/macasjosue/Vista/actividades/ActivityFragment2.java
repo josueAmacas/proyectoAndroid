@@ -1,4 +1,4 @@
-package com.example.macasjosue;
+package com.example.macasjosue.Vista.actividades;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -7,7 +7,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
-public class ActivityFragment2 extends AppCompatActivity implements Comunicador, View.OnClickListener, Frgescuchar1.OnFragmentInteractionListener, Frgescuchar2.OnFragmentInteractionListener{
+import com.example.macasjosue.R;
+import com.example.macasjosue.Vista.fragmentos.Frgescuchar1;
+import com.example.macasjosue.Vista.fragmentos.Frgescuchar2;
+import com.example.macasjosue.modelo.Comunicador;
+
+public class ActivityFragment2 extends AppCompatActivity implements Comunicador, View.OnClickListener, Frgescuchar1.OnFragmentInteractionListener, Frgescuchar2.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

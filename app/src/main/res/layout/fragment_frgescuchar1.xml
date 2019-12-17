@@ -5,7 +5,7 @@
     android:layout_height="365sp"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
-    tools:context=".Frgescuchar1">
+    tools:context=".Vista.fragmentos.Frgescuchar1">
 
     <TextView
         android:id="@+id/lblTituloFragmento1"

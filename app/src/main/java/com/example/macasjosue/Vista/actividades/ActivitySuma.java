@@ -1,4 +1,4 @@
-package com.example.macasjosue;
+package com.example.macasjosue.Vista.actividades;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.macasjosue.R;
 
 public class ActivitySuma extends AppCompatActivity implements View.OnClickListener {
     EditText entrada1, entrada2, salida;

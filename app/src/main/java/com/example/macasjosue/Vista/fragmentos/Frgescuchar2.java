@@ -1,32 +1,36 @@
-package com.example.macasjosue;
+package com.example.macasjosue.Vista.fragmentos;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
+
+import com.example.macasjosue.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link FrgUno.OnFragmentInteractionListener} interface
+ * {@link Frgescuchar2.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link FrgUno#newInstance} factory method to
+ * Use the {@link Frgescuchar2#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FrgUno extends Fragment {
+public class Frgescuchar2 extends Fragment {
+    TextView dato;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    public int contador = 0;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -34,7 +38,7 @@ public class FrgUno extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public FrgUno() {
+    public Frgescuchar2() {
         // Required empty public constructor
     }
 
@@ -44,11 +48,11 @@ public class FrgUno extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FrgUno.
+     * @return A new instance of fragment Frgescuchar2.
      */
     // TODO: Rename and change types and number of parameters
-    public static FrgUno newInstance(String param1, String param2) {
-        FrgUno fragment = new FrgUno();
+    public static Frgescuchar2 newInstance(String param1, String param2) {
+        Frgescuchar2 fragment = new Frgescuchar2();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -69,22 +73,18 @@ public class FrgUno extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_frg_uno, container, false);
-        View vista = inflater.inflate(R.layout.fragment_frg_uno, container, false);
-        final EditText n1 = vista.findViewById(R.id.txtN1Frg1);
-        final EditText n2 = vista.findViewById(R.id.txtN2Frg1);
-        Button boton = vista.findViewById(R.id.btnSumarFrg1);
-        boton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int valor1 = Integer.parseInt(n1.getText().toString());
-                int valor2 = Integer.parseInt(n2.getText().toString());
-                int suma = valor1+valor2;
+        return inflater.inflate(R.layout.fragment_frgescuchar2, container, false);
 
-                Toast.makeText(getActivity(), "La suma es:  " + suma,  Toast.LENGTH_SHORT).show();
-            }
-        });
-        return vista;
+    }
+
+    public void onActivityCreated(@Nullable Bundle saveInstaceState) {
+        super.onActivityCreated(saveInstaceState);
+
+       dato = (TextView) getActivity().findViewById(R.id.lblNumeroC);
+    }
+
+    public void cambiarTexto(String texto){
+        dato.setText(texto);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

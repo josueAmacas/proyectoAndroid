@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ActivityFragment2">
+    tools:context=".Vista.actividades.ActivityFragment2">
 
     <fragment
         android:id="@+id/Frgescucha1"
-        android:name="com.example.macasjosue.Frgescuchar1"
+        android:name="com.example.macasjosue.Vista.fragmentos.Frgescuchar1"
         android:layout_width="match_parent"
         android:layout_height="277dp" />
 
     <fragment
         android:id="@+id/Frgescucha2"
-        android:name="com.example.macasjosue.Frgescuchar2"
+        android:name="com.example.macasjosue.Vista.fragmentos.Frgescuchar2"
         android:layout_width="match_parent"
         android:layout_height="454dp" />
 </LinearLayout>

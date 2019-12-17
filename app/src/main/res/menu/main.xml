@@ -30,12 +30,21 @@
             <item
                 android:id="@+id/opcionColores"
                 android:title="Colores">
-
             </item>
 
             <item
                 android:id="@+id/opcionEscucha"
                 android:title="Escuchar Fragmentos">
+
+            </item>
+            <item
+                android:id="@+id/opcionSumarDlg"
+                android:title="Sumar">
+
+            </item>
+            <item
+                android:id="@+id/opcionArtistas"
+                android:title="Artistas">
 
             </item>
         </menu>

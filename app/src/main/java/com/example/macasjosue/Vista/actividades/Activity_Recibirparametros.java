@@ -1,9 +1,11 @@
-package com.example.macasjosue;
+package com.example.macasjosue.Vista.actividades;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.macasjosue.R;
 
 public class Activity_Recibirparametros extends AppCompatActivity {
 

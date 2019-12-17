@@ -2,9 +2,11 @@ package com.example.macasjosue;
 
 import android.os.Bundle;
 
+import com.example.macasjosue.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.MenuInflater;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -56,7 +58,10 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements View.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_navigationdrawer, menu);
+        /*getMenuInflater().inflate(R.menu.activity_navigationdrawer, menu);
+        return true;*/
+        MenuInflater inflaterMenu = getMenuInflater();
+        inflaterMenu.inflate(R.menu.main, menu);
         return true;
     }
 
