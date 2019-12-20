@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Vista.actividades.ActivityRecyclerartistas"></activity>
-        <activity android:name=".Vista.actividades.ActivityFragment2"></activity>
+        <activity android:name=".Vista.actividades.ActivityMemoriaprograma"></activity>
+        <activity android:name=".Vista.actividades.ActivityMemoriainterna" />
+        <activity android:name=".Vista.actividades.ActivityRecyclerartistas" />
+        <activity android:name=".Vista.actividades.ActivityFragment2" />
         <activity
             android:name=".ActivityNavigationdrawer"
             android:label="@string/title_activity_navigationdrawer"
@@ -26,9 +28,7 @@
         <activity android:name=".Vista.actividades.ActivityEnvparametros" />
         <activity android:name=".Vista.actividades.ActivitySuma" />
         <activity android:name=".Vista.actividades.ActivityLogin" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

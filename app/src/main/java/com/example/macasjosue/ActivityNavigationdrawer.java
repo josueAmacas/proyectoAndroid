@@ -1,14 +1,26 @@
 package com.example.macasjosue;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.macasjosue.R;
+import com.example.macasjosue.Vista.actividades.ActivityEnvparametros;
+import com.example.macasjosue.Vista.actividades.ActivityFragment2;
+import com.example.macasjosue.Vista.actividades.ActivityLogin;
+import com.example.macasjosue.Vista.actividades.ActivityMemoriainterna;
+import com.example.macasjosue.Vista.actividades.ActivityMemoriaprograma;
+import com.example.macasjosue.Vista.actividades.ActivityRecyclerartistas;
+import com.example.macasjosue.Vista.actividades.ActivitySuma;
+import com.example.macasjosue.Vista.fragmentos.fragmento;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -22,6 +34,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class ActivityNavigationdrawer extends AppCompatActivity implements View.OnClickListener{
 
@@ -58,10 +73,68 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements View.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        /*getMenuInflater().inflate(R.menu.activity_navigationdrawer, menu);
-        return true;*/
-        MenuInflater inflaterMenu = getMenuInflater();
-        inflaterMenu.inflate(R.menu.main, menu);
+        //getMenuInflater().inflate(R.menu.activity_navigationdrawer, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        //Este metodo permite realizar eventos en cada item hijo de los menu
+        Intent intent;
+        switch (item.getItemId()){
+            case R.id.opcionLogin:
+                intent = new Intent(this, ActivityLogin.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionSumar:
+                intent = new Intent(this, ActivitySuma.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionParametros:
+                intent = new Intent(this, ActivityEnvparametros.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionColores:
+                intent = new Intent(this, fragmento.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionEscucha:
+                intent = new Intent(this, ActivityFragment2.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionSumarDlg:
+                final Dialog dlgSumar = new Dialog(this);
+                dlgSumar.setContentView(R.layout.dlg_sumar);
+                final EditText cajaN1 = dlgSumar.findViewById(R.id.txtN1Dlg);
+                final EditText cajaN2 = dlgSumar.findViewById(R.id.txtN2Dlg);
+                Button botorSumarDlg = dlgSumar.findViewById(R.id.btnSumarDlg);
+                botorSumarDlg.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int n1 = Integer.parseInt(cajaN1.getText().toString());
+                        int n2 = Integer.parseInt(cajaN2.getText().toString());
+                        int suma = n1 + n2;
+                        Toast.makeText(ActivityNavigationdrawer.this, "La suma es:  "+ suma,Toast.LENGTH_SHORT).show();
+                        dlgSumar.hide();
+                    }
+                });
+
+                dlgSumar.show();
+                break;
+            case R.id.opcionArtistas:
+                intent = new Intent(this, ActivityRecyclerartistas.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionInterno:
+                intent = new Intent(this, ActivityMemoriainterna.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionPrograma:
+                intent = new Intent(this, ActivityMemoriaprograma.class);
+                startActivity(intent);
+                break;
+        }
         return true;
     }
 

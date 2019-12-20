@@ -5,6 +5,7 @@ import java.util.Date;
 public class Artista {
     private String nombres;
     private String apellidos;
+    private String nombreArtistico;
     private int foto;
     private Date fechaNacimiento;
 
@@ -40,4 +41,11 @@ public class Artista {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public String getNombreArtistico() {
+        return nombreArtistico;
+    }
+
+    public void setNombreArtistico(String nombreArtistico) {
+        this.nombreArtistico = nombreArtistico;
+    }
 }

@@ -31,6 +31,8 @@ public class ArtistaAdapter extends RecyclerView.Adapter<ArtistaAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolderArtista viewHolderArtista, int pos) {
         viewHolderArtista.datonombres.setText(lista.get(pos).getNombres());
         viewHolderArtista.datoapellidos.setText(lista.get(pos).getApellidos());
+        viewHolderArtista.datonombreartistico.setText(lista.get(pos).getNombreArtistico());
+        viewHolderArtista.datofechanacimiento.setText((CharSequence) lista.get(pos).getFechaNacimiento());
         viewHolderArtista.datoFoto.setImageResource(lista.get(pos).getFoto());
 
     }
@@ -43,12 +45,16 @@ public class ArtistaAdapter extends RecyclerView.Adapter<ArtistaAdapter.ViewHold
     public static  class ViewHolderArtista extends RecyclerView.ViewHolder {
         TextView datonombres;
         TextView datoapellidos;
+        TextView datonombreartistico;
+        TextView datofechanacimiento;
         ImageView datoFoto;
 
         public ViewHolderArtista(@NonNull View itemView) {
             super(itemView);
             datonombres = itemView.findViewById(R.id.lblNombreArtista);
             datoapellidos = itemView.findViewById(R.id.lblApellidoArtista);
+            datonombreartistico = itemView.findViewById(R.id.lblNombreartisticoArtista);
+            datofechanacimiento= itemView.findViewById(R.id.lblFechanacimientoArtista);
             datoFoto = itemView.findViewById(R.id.imgFoto);
         }
     }
