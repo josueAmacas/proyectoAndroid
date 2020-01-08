@@ -18,7 +18,7 @@ public class ArtistaAdapter extends RecyclerView.Adapter<ArtistaAdapter.ViewHold
     List <Artista> lista;
     public ArtistaAdapter(List<Artista> lista){
         this.lista = lista;
-    };
+    }
 
     @NonNull
     @Override

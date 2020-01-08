@@ -79,12 +79,18 @@
             <item
                 android:id="@+id/opcionInterno"
                 android:title="Interno">
-
             </item>
             <item
                 android:id="@+id/opcionPrograma"
                 android:title="Programa">
-
+            </item>
+            <item
+                android:id="@+id/opcionArchivoReyes"
+                android:title="Archivo Reyes">
+            </item>
+            <item
+                android:id="@+id/opcionArchivosSD"
+                android:title="Archivo SD">
             </item>
         </menu>
     </item>

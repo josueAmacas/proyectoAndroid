@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.macasjosue.R;
+import com.example.macasjosue.Vista.actividades.ActivityArchivomemoriasd;
 import com.example.macasjosue.Vista.actividades.ActivityEnvparametros;
 import com.example.macasjosue.Vista.actividades.ActivityFragment2;
 import com.example.macasjosue.Vista.actividades.ActivityLogin;
 import com.example.macasjosue.Vista.actividades.ActivityMemoriainterna;
 import com.example.macasjosue.Vista.actividades.ActivityMemoriaprograma;
+import com.example.macasjosue.Vista.actividades.ActivityProgramareyes;
 import com.example.macasjosue.Vista.actividades.ActivityRecyclerartistas;
 import com.example.macasjosue.Vista.actividades.ActivitySuma;
 import com.example.macasjosue.Vista.fragmentos.fragmento;
@@ -132,6 +134,14 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements View.
                 break;
             case R.id.opcionPrograma:
                 intent = new Intent(this, ActivityMemoriaprograma.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionArchivoReyes:
+                intent = new Intent(this, ActivityProgramareyes.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionArchivosSD:
+                intent = new Intent(this, ActivityArchivomemoriasd.class);
                 startActivity(intent);
                 break;
         }
