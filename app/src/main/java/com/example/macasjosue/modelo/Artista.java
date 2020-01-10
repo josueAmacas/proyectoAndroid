@@ -7,7 +7,7 @@ public class Artista {
     private String apellidos;
     private String nombreArtistico;
     private int foto;
-    private Date fechaNacimiento;
+    private String fechaNacimiento;
 
     public String getNombres() {
         return nombres;
@@ -33,11 +33,11 @@ public class Artista {
         this.foto = foto;
     }
 
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 

@@ -25,7 +25,7 @@ import java.util.List;
 public class ActivityMemoriainterna extends AppCompatActivity implements View.OnClickListener {
 
     Button botonGuardar, botonBuscarTodos;
-    EditText cajaNombres, cajaApellidos,cajaNombreArtistico;
+    EditText cajaNombres, cajaApellidos,cajaNombreArtistico, cajaFechaNacimiento;
     TextView datos;
     RecyclerView recyclerViewMI;
     ArtistaAdapter adapter;
@@ -46,6 +46,7 @@ public class ActivityMemoriainterna extends AppCompatActivity implements View.On
         cajaNombres = findViewById(R.id.txtNombresMI);
         cajaApellidos = findViewById(R.id.txtApellidosMI);
         cajaNombreArtistico= findViewById(R.id.txtNombreArtisticoMI);
+        cajaFechaNacimiento = findViewById(R.id.txtFNacimiento);
         datos =findViewById(R.id.lblDatosMI);
         botonGuardar.setOnClickListener(this);
         botonBuscarTodos.setOnClickListener(this);
@@ -63,6 +64,7 @@ public class ActivityMemoriainterna extends AppCompatActivity implements View.On
             artista.setNombres(lista[0]);
             artista.setApellidos(lista[1]);
             artista.setNombreArtistico(lista[2]);
+            artista.setFechaNacimiento(lista[3]);
             listaArtista.add(artista);
         }
 
@@ -77,9 +79,13 @@ public class ActivityMemoriainterna extends AppCompatActivity implements View.On
        switch (view.getId()){
            case R.id.btnGuardarMI:
                try{
-                   OutputStreamWriter escribir = new OutputStreamWriter(openFileOutput("artistas.txt", Context.MODE_APPEND));
-                   escribir.write(cajaNombres.getText().toString()+","+ cajaApellidos.getText().toString() + ","+cajaNombreArtistico.getText().toString() +";");
+                   OutputStreamWriter escribir = new OutputStreamWriter(openFileOutput("Archivoartistas.txt", Context.MODE_APPEND));
+                   escribir.write(cajaNombres.getText().toString()+","+ cajaApellidos.getText().toString() + ","+cajaNombreArtistico.getText().toString() +","+cajaFechaNacimiento.getText().toString()+";");
                    escribir.close();
+                   cajaNombres.setText("");
+                   cajaApellidos.setText("");
+                   cajaNombreArtistico.setText("");
+                   cajaFechaNacimiento.setText("");
 
                } catch (Exception e){
                    Log.e("archivoMI","Ha ocurrido un error" + e.getMessage());
@@ -87,7 +93,7 @@ public class ActivityMemoriainterna extends AppCompatActivity implements View.On
                break;
            case R.id.btnBuscartodosMI:
                try {
-                   BufferedReader lector = new BufferedReader(new InputStreamReader(openFileInput("artistas.txt")));
+                   BufferedReader lector = new BufferedReader(new InputStreamReader(openFileInput("Archivoartistas.txt")));
                    lineas = lector.readLine();
                    datos.setText(lineas);
                    lector.close();

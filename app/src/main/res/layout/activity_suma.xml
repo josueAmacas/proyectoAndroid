@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:hint="Entrada 1" />
 
         <EditText
@@ -27,17 +27,19 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:hint="Entrada 2" />
     </LinearLayout>
 
-    <EditText
+    <TextView
         android:id="@+id/txtSalida"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="La respuesta es: "
         android:inputType="textPersonName"
-        android:hint="La respuesta es: " />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnCalcular"

@@ -1,43 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Vista.actividades.ActivityMemoriainterna">
+    tools:context=".Vista.actividades.ActivityProductohelper">
 
     <EditText
-        android:id="@+id/txtNombresMI"
+        android:id="@+id/txtCodigoP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:hint="Ingrese Codigo"/>
+
+    <EditText
+        android:id="@+id/txtDescripcionP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Ingrese Nombre" />
+        android:hint="Ingrese Descripcion" />
 
     <EditText
-        android:id="@+id/txtApellidosMI"
+        android:id="@+id/txtPrecioP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Ingrese Apellido" />
+        android:inputType="numberDecimal"
+        android:hint="Ingrese Precio"/>
 
     <EditText
-        android:id="@+id/txtNombreArtisticoMI"
+        android:id="@+id/txtCantidadP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Ingrese Nombre Artistico" />
-
-    <EditText
-        android:id="@+id/txtFNacimiento"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="date"
-        android:hint="Ingrese fecha de nacimiento"/>
+        android:inputType="number"
+        android:hint="Ingrese Cantidad"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,37 +44,23 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnGuardarMI"
+            android:id="@+id/btnAgregarProducto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Agregar" />
+            android:text="Agregar Producto" />
 
         <Button
-            android:id="@+id/btnBuscartodosMI"
+            android:id="@+id/btnListarProducto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Listar" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button" />
-
+            android:text="Listar Productos" />
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/lblDatosMI"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerMI"
+        android:id="@+id/recyclerProductos"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

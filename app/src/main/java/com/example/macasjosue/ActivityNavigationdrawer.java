@@ -11,6 +11,7 @@ import com.example.macasjosue.Vista.actividades.ActivityFragment2;
 import com.example.macasjosue.Vista.actividades.ActivityLogin;
 import com.example.macasjosue.Vista.actividades.ActivityMemoriainterna;
 import com.example.macasjosue.Vista.actividades.ActivityMemoriaprograma;
+import com.example.macasjosue.Vista.actividades.ActivityProductohelper;
 import com.example.macasjosue.Vista.actividades.ActivityProgramareyes;
 import com.example.macasjosue.Vista.actividades.ActivityRecyclerartistas;
 import com.example.macasjosue.Vista.actividades.ActivitySuma;
@@ -142,6 +143,10 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements View.
                 break;
             case R.id.opcionArchivosSD:
                 intent = new Intent(this, ActivityArchivomemoriasd.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionHelper:
+                intent = new Intent(this, ActivityProductohelper.class);
                 startActivity(intent);
                 break;
         }

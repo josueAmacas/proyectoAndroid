@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.macasjosue">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Vista.actividades.ActivityArchivomemoriasd"></activity>
+        <activity android:name=".Vista.actividades.ActivityProductohelper"></activity>
+        <activity android:name=".Vista.actividades.ActivityArchivomemoriasd" />
         <activity android:name=".Vista.actividades.ActivityProgramareyes" />
         <activity android:name=".Vista.actividades.ActivityMemoriaprograma" />
         <activity android:name=".Vista.actividades.ActivityMemoriainterna" />

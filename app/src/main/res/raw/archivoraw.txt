@@ -1,1 +1,1 @@
-Byron,Caicedo,Byron Caicedo;Angel,Guaraca,Angel Guaraca;Gerardo,Moran,Gerardo Moran;Delfin,Quizhpe,Delfin Quizhpe;nombre5,apellido5,nombreartistico5;
+Byron,Caicedo,Byron Caicedo,26-11-1958;Angel,Guaraca,Angel Guaraca,11-02-1975;Gerardo,Moran,Gerardo Moran,16-09-1937;Delfin,Quizhpe,Delfin Quizhpe,23-12-1972;Enma,Echeverria,Lolita Echeverria,23-05-1978;

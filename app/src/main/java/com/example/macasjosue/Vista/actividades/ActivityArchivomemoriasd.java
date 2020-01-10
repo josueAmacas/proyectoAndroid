@@ -31,7 +31,7 @@ import java.util.List;
 public class ActivityArchivomemoriasd extends AppCompatActivity implements View.OnClickListener{
 
     Button botonEscribir, botonLeer;
-    EditText cajaNombres, cajaApellidos,cajaNombreArtistico;
+    EditText cajaNombres, cajaApellidos,cajaNombreArtistico,cajaFechaNacimiento;
     TextView datos;
     RecyclerView recyclerViewMSD;
     ArtistaAdapter adapter;
@@ -51,6 +51,7 @@ public class ActivityArchivomemoriasd extends AppCompatActivity implements View.
         cajaNombres = findViewById(R.id.txtNombresMSD);
         cajaApellidos = findViewById(R.id.txtApellidosMSD);
         cajaNombreArtistico= findViewById(R.id.txtNombreArtisticoMSD);
+        cajaFechaNacimiento = findViewById(R.id.txtfechaNMSD);
         datos =findViewById(R.id.lblDatosMSD);
         botonEscribir.setOnClickListener(this);
         botonLeer.setOnClickListener(this);
@@ -68,6 +69,7 @@ public class ActivityArchivomemoriasd extends AppCompatActivity implements View.
             artista.setNombres(lista[0]);
             artista.setApellidos(lista[1]);
             artista.setNombreArtistico(lista[2]);
+            artista.setFechaNacimiento(lista[3]);
             listaArtista.add(artista);
         }
 
@@ -91,8 +93,12 @@ public class ActivityArchivomemoriasd extends AppCompatActivity implements View.
 
                     FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
                     BufferedWriter bw = new BufferedWriter(fw);
-                    bw.write(cajaNombres.getText().toString()+","+ cajaApellidos.getText().toString() + ","+cajaNombreArtistico.getText().toString() +";");
+                    bw.write(cajaNombres.getText().toString()+","+ cajaApellidos.getText().toString() + ","+cajaNombreArtistico.getText().toString() +"," +cajaFechaNacimiento.getText().toString() +";");
                     bw.close();
+                    cajaNombres.setText("");
+                    cajaApellidos.setText("");
+                    cajaNombreArtistico.setText("");
+                    cajaFechaNacimiento.setText("");
                 } catch (Exception e){
                     Log.e("ERROR SD", e.getMessage());
                 }

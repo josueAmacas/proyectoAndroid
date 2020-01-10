@@ -39,6 +39,8 @@ public class ActivityEnvparametros extends AppCompatActivity implements View.OnC
         bundle.putString("apellido",cajaApellido.getText()+"");
         intent.putExtras(bundle);
         startActivity(intent);
+        cajanombre.setText("");
+        cajaApellido.setText("");
 
     }
 }

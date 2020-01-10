@@ -70,6 +70,7 @@ public class ActivityMemoriaprograma extends AppCompatActivity implements View.O
             artista.setNombres(lista[0]);
             artista.setApellidos(lista[1]);
             artista.setNombreArtistico(lista[2]);
+            artista.setFechaNacimiento(lista[3]);
             listaArtista.add(artista);
         }
 

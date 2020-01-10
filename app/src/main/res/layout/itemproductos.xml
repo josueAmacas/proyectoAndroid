@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lblcodigo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Codigo: "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtCodigo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned" />
+
+    <TextView
+        android:id="@+id/lblDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripcion: "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="" />
+
+    <TextView
+        android:id="@+id/lblPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Precio: "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/lblCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cantidad: "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+</LinearLayout>

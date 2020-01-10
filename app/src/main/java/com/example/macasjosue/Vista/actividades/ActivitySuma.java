@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.macasjosue.R;
 
 public class ActivitySuma extends AppCompatActivity implements View.OnClickListener {
-    EditText entrada1, entrada2, salida;
+    EditText entrada1, entrada2;
+    TextView salida;
     Button boton;
 
     @Override

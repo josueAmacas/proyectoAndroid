@@ -11,7 +11,9 @@
         android:id="@+id/lblNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Su nombre es: " />
+        android:text="Su nombre es: "
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/lblNombreRecibir"
@@ -19,13 +21,16 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:text="Name"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/lblApellido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Su apellido es: " />
+        android:text="Su apellido es: "
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/lblApellidoRecibir"
@@ -33,6 +38,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:text="Name"
+        android:textSize="18sp" />
 
 </LinearLayout>
