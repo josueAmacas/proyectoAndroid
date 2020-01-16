@@ -12,14 +12,20 @@ import com.example.macasjosue.modelo.Producto;
 
 import java.util.List;
 
-public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.ViewHolderProducto> {
+public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.ViewHolderProducto> implements View.OnClickListener {
 
     List<Producto> lista;
-    public AdapterProductos(List<Producto> lista){this.lista = lista;}
+
+    public AdapterProductos(List<Producto> lista){
+        this.lista = lista;
+    }
+
+    public View.OnClickListener click;
 
     @Override
     public ViewHolderProducto onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.itemproductos, null);
+        view.setOnClickListener(this);
         return new ViewHolderProducto(view);
     }
 
@@ -34,6 +40,17 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.View
     @Override
     public int getItemCount() {
         return lista.size();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(click != null){
+            click.onClick(v);
+        }
+    }
+
+    public void setOnClickListener(View.OnClickListener listener){
+        this.click = listener;
     }
 
     public static  class ViewHolderProducto extends RecyclerView.ViewHolder {

@@ -1,6 +1,5 @@
 package com.example.macasjosue;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -72,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         //Este metodo permite realizar eventos en cada item hijo de los menu
         Intent intent;
         switch (item.getItemId()){

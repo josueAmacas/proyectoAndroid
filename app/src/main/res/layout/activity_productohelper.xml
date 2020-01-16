@@ -48,14 +48,49 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Agregar Producto" />
+            android:text="Agregar" />
 
         <Button
             android:id="@+id/btnListarProducto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Listar Productos" />
+            android:text="L.Todos" />
+
+        <Button
+            android:id="@+id/btnModificarProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Modificar" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnEliminarCodigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="E.Codigo" />
+
+        <Button
+            android:id="@+id/btnEliminarTodoProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="E. Todo" />
+
+        <Button
+            android:id="@+id/btnListarCodigoProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Listar Codigo" />
 
     </LinearLayout>
 

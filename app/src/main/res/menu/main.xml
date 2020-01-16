@@ -8,17 +8,22 @@
             <item
                 android:id="@+id/opcionLogin"
                 android:title="Login">
-
             </item>
             <item
                 android:id="@+id/opcionSumar"
                 android:title="Sumar">
-
             </item>
             <item
                 android:id="@+id/opcionParametros"
                 android:title="Parametros">
-
+            </item>
+            <item
+                android:id="@+id/opcionSueldos"
+                android:title="Sueldos">
+            </item>
+            <item
+                android:id="@+id/opcionExamen"
+                android:title="Examen">
             </item>
         </menu>
     </item>
@@ -31,21 +36,13 @@
                 android:id="@+id/opcionColores"
                 android:title="Colores">
             </item>
-
             <item
                 android:id="@+id/opcionEscucha"
                 android:title="Escuchar Fragmentos">
-
             </item>
             <item
                 android:id="@+id/opcionSumarDlg"
                 android:title="Sumar">
-
-            </item>
-            <item
-                android:id="@+id/opcionArtistas"
-                android:title="Artistas">
-
             </item>
         </menu>
     </item>
@@ -85,13 +82,18 @@
                 android:title="Programa">
             </item>
             <item
-                android:id="@+id/opcionArchivoReyes"
-                android:title="Archivo Reyes">
-            </item>
-            <item
                 android:id="@+id/opcionArchivosSD"
                 android:title="Archivo SD">
             </item>
+            <item
+                android:id="@+id/opcionArtistas"
+                android:title="Artistas">
+            </item>
+            <item
+                android:id="@+id/opcionArchivoReyes"
+                android:title="Archivo Reyes">
+            </item>
+
         </menu>
     </item>
 

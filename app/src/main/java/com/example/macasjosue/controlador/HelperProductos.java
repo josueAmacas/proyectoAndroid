@@ -48,6 +48,41 @@ public class HelperProductos extends SQLiteOpenHelper {
         return lista;
     }
 
+    public void modificar(Producto producto){
+        ContentValues values = new ContentValues();
+        values.put("codigo", producto.getCodigo());
+        values.put("descripcion",producto.getDescripcion());
+        values.put("precio",producto.getPrecio());
+        values.put("cantidad",producto.getCantidad());
+        this.getWritableDatabase().update("producto",values,"codigo =" + producto.getCodigo(),null);
+    }
+
+    public void eliminarCodigo(Producto producto){
+        this.getWritableDatabase().delete("producto","codigo="+producto.getCodigo(),null);
+    }
+
+    public void eliminarTodo(){
+        this.getWritableDatabase().delete("producto",null,null);
+    }
+
+    public List<Producto> getProductoByCodigo(String codigo){
+
+        List<Producto> lista = new ArrayList<Producto>();
+        Cursor cursor = this.getReadableDatabase().rawQuery("select * from producto where codigo = '" + codigo + "'",null);
+        if(cursor.moveToFirst()){
+            do{
+                Producto p = new Producto();
+                p.setCodigo(cursor.getInt(cursor.getColumnIndex("codigo")));
+                p.setDescripcion(cursor.getString(cursor.getColumnIndex("descripcion")));
+                p.setPrecio(cursor.getDouble(cursor.getColumnIndex("precio")));
+                p.setCantidad(cursor.getInt(cursor.getColumnIndex("cantidad")));
+                lista.add(p);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        return lista;
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 

@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.macasjosue.Examen.ActivityExamennotas;
 import com.example.macasjosue.R;
 import com.example.macasjosue.Vista.actividades.ActivityArchivomemoriasd;
 import com.example.macasjosue.Vista.actividades.ActivityEnvparametros;
@@ -14,6 +15,7 @@ import com.example.macasjosue.Vista.actividades.ActivityMemoriaprograma;
 import com.example.macasjosue.Vista.actividades.ActivityProductohelper;
 import com.example.macasjosue.Vista.actividades.ActivityProgramareyes;
 import com.example.macasjosue.Vista.actividades.ActivityRecyclerartistas;
+import com.example.macasjosue.Vista.actividades.ActivitySueldos;
 import com.example.macasjosue.Vista.actividades.ActivitySuma;
 import com.example.macasjosue.Vista.fragmentos.fragmento;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -24,6 +26,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -41,7 +44,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class ActivityNavigationdrawer extends AppCompatActivity implements View.OnClickListener{
+public class ActivityNavigationdrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -51,6 +54,7 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements View.
         setContentView(R.layout.activity_navigationdrawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,8 +63,10 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements View.
                         .setAction("Action", null).show();
             }
         });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -149,8 +155,17 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements View.
                 intent = new Intent(this, ActivityProductohelper.class);
                 startActivity(intent);
                 break;
+            case R.id.opcionSueldos:
+                intent = new Intent(this, ActivitySueldos.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionExamen:
+                intent = new Intent(this, ActivityExamennotas.class);
+                startActivity(intent);
+                break;
         }
-        return true;
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -161,8 +176,26 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements View.
     }
 
     @Override
-    public void onClick(View v) {
+    public boolean onNavigationItemSelected(MenuItem menuItem) {
 
+        int id = menuItem.getItemId();
+
+        if(id == R.id.nav_home){
+
+        }else if(id == R.id.nav_gallery){
+
+        }else if(id == R.id.nav_slideshow){
+
+        }else if(id == R.id.nav_tools){
+
+        }else if(id == R.id.nav_share){
+
+        }else if(id == R.id.nav_send){
+
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
-
 }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Vista.actividades.ActivitySueldos">
+
+    <EditText
+        android:id="@+id/txtHTrabajadas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Ingrese horas trabajadas"/>
+
+    <EditText
+        android:id="@+id/txtPrecioHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Ingrese precio por hora"/>
+
+    <TextView
+        android:id="@+id/lblHExtras"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Horas Extra" />
+
+    <TextView
+        android:id="@+id/lblSueldoN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sueldo Normal" />
+
+    <TextView
+        android:id="@+id/lblSueldoExtra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sueldo Extra" />
+
+    <TextView
+        android:id="@+id/lblTazaImpuesto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Taza de impuestos" />
+
+    <TextView
+        android:id="@+id/lblSueldoNeto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sueldo Neto" />
+
+    <Button
+        android:id="@+id/btnCalcularSueldos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calcular Sueldos" />
+</LinearLayout>
