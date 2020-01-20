@@ -12,14 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Vista.actividades.ActivitySueldos"></activity>
-        <activity android:name=".Examen.ActivityExamennotas"></activity>
+        <activity android:name=".Vista.actividades.ActivityArchivos"></activity>
+        <activity android:name=".Vista.actividades.ActivitySueldos" />
+        <activity android:name=".Examen.ActivityExamennotas" />
         <activity android:name=".Vista.actividades.ActivityProductohelper" />
-        <activity android:name=".Vista.actividades.ActivityArchivomemoriasd" />
-        <activity android:name=".Vista.actividades.ActivityProgramareyes" />
-        <activity android:name=".Vista.actividades.ActivityMemoriaprograma" />
-        <activity android:name=".Vista.actividades.ActivityMemoriainterna" />
-        <activity android:name=".Vista.actividades.ActivityRecyclerartistas" />
         <activity android:name=".Vista.actividades.ActivityFragment2" />
         <activity
             android:name=".ActivityNavigationdrawer"

@@ -72,7 +72,7 @@
     <item
         android:id="@+id/opcionArchivos"
         android:title="Archivos">
-        <menu>
+        <!--menu>
             <item
                 android:id="@+id/opcionInterno"
                 android:title="Interno">
@@ -94,7 +94,7 @@
                 android:title="Archivo Reyes">
             </item>
 
-        </menu>
+        </menu-->
     </item>
 
     <item

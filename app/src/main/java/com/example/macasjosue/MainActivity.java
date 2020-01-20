@@ -16,8 +16,6 @@ import android.widget.Toast;
 import com.example.macasjosue.Vista.actividades.ActivityEnvparametros;
 import com.example.macasjosue.Vista.actividades.ActivityFragment2;
 import com.example.macasjosue.Vista.actividades.ActivityLogin;
-import com.example.macasjosue.Vista.actividades.ActivityProgramareyes;
-import com.example.macasjosue.Vista.actividades.ActivityRecyclerartistas;
 import com.example.macasjosue.Vista.actividades.ActivitySuma;
 import com.example.macasjosue.Vista.fragmentos.fragmento;
 
@@ -114,14 +112,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 dlgSumar.show();
                 break;
-            case R.id.opcionArtistas:
+            /*case R.id.opcionArtistas:
                 intent = new Intent(MainActivity.this, ActivityRecyclerartistas.class);
                 startActivity(intent);
                 break;
             case R.id.opcionArchivoReyes:
                 intent = new Intent(MainActivity.this, ActivityProgramareyes.class);
                 startActivity(intent);
-                break;
+                break;*/
         }
         return true;
     }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="Interno"
+        android:id="@+id/opMInterna"
+        app:showAsAction="always">
+    </item>
+
+    <item
+        android:icon="@android:drawable/ic_menu_call"
+        android:id="@+id/opPrograma"
+        android:title="Programa"
+        app:showAsAction="always">
+    </item>
+    <item
+        android:icon="@android:drawable/stat_notify_sdcard"
+        android:id="@+id/opArchivosSD"
+        android:title="Archivo SD"
+        app:showAsAction="always">
+    </item>
+    <item
+        android:icon="@android:drawable/ic_media_play"
+        android:id="@+id/opArtistas"
+        android:title="Artistas"
+        app:showAsAction="always">
+    </item>
+    <item
+        android:icon="@android:drawable/sym_action_chat"
+        android:id="@+id/opArchivoReyes"
+        android:title="Archivo Reyes"
+        app:showAsAction="always">
+    </item>
+
+</menu>

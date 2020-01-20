@@ -5,23 +5,17 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.macasjosue.Examen.ActivityExamennotas;
-import com.example.macasjosue.R;
-import com.example.macasjosue.Vista.actividades.ActivityArchivomemoriasd;
+import com.example.macasjosue.Vista.actividades.ActivityArchivos;
 import com.example.macasjosue.Vista.actividades.ActivityEnvparametros;
 import com.example.macasjosue.Vista.actividades.ActivityFragment2;
 import com.example.macasjosue.Vista.actividades.ActivityLogin;
-import com.example.macasjosue.Vista.actividades.ActivityMemoriainterna;
-import com.example.macasjosue.Vista.actividades.ActivityMemoriaprograma;
 import com.example.macasjosue.Vista.actividades.ActivityProductohelper;
-import com.example.macasjosue.Vista.actividades.ActivityProgramareyes;
-import com.example.macasjosue.Vista.actividades.ActivityRecyclerartistas;
 import com.example.macasjosue.Vista.actividades.ActivitySueldos;
 import com.example.macasjosue.Vista.actividades.ActivitySuma;
 import com.example.macasjosue.Vista.fragmentos.fragmento;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -131,7 +125,7 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements Navig
 
                 dlgSumar.show();
                 break;
-            case R.id.opcionArtistas:
+            /*case R.id.opcionArtistas:
                 intent = new Intent(this, ActivityRecyclerartistas.class);
                 startActivity(intent);
                 break;
@@ -149,6 +143,10 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements Navig
                 break;
             case R.id.opcionArchivosSD:
                 intent = new Intent(this, ActivityArchivomemoriasd.class);
+                startActivity(intent);
+                break;*/
+            case R.id.opcionArchivos:
+                intent = new Intent(this, ActivityArchivos.class);
                 startActivity(intent);
                 break;
             case R.id.opcionHelper:
