@@ -79,11 +79,16 @@ public class FrgUno extends Fragment {
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int valor1 = Integer.parseInt(n1.getText().toString());
-                int valor2 = Integer.parseInt(n2.getText().toString());
-                int suma = valor1+valor2;
-
-                Toast.makeText(getActivity(), "La suma es:  " + suma,  Toast.LENGTH_SHORT).show();
+                String v1 = n1.getText().toString();
+                String v2 = n2.getText().toString();
+                if(v1.length() == 0 || v2.length() == 0){
+                    Toast.makeText(getActivity(), "Por favor llene todos los campos",  Toast.LENGTH_SHORT).show();
+                } else {
+                    int valor1 = Integer.parseInt(v1);
+                    int valor2 = Integer.parseInt(v2);
+                    int suma = valor1+valor2;
+                    Toast.makeText(getActivity(), "La suma es:  " + suma,  Toast.LENGTH_SHORT).show();
+                }
             }
         });
         return vista;

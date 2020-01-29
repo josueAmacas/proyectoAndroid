@@ -1,89 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-
+    android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_width="188dp"
+        android:layout_width="205dp"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/lblcodigo"
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Codigo: "
+            android:text="Placa: "
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtCodigo"
+            android:id="@+id/lblPlacaC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberSigned" />
+            android:text="TextView" />
 
         <TextView
-            android:id="@+id/lblCantidad"
+            android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cantidad: "
+            android:text="Marca: "
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtCantidad"
+            android:id="@+id/lblMarcaC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number" />
+            android:text="TextView" />
 
         <View
-            android:id="@+id/divider3"
+            android:id="@+id/divider6"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
-
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="221dp"
+        android:layout_width="205dp"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/lblDescripcion"
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Descripcion: "
+            android:text="Modelo: "
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtDescripcion"
+            android:id="@+id/lblModeloC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint=""
-            android:inputType="textPersonName" />
+            android:text="TextView" />
 
         <TextView
-            android:id="@+id/lblPrecio"
+            android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Precio: "
+            android:text="Año: "
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtPrecio"
+            android:id="@+id/lblAnioC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal" />
+            android:text="TextView" />
 
         <View
-            android:id="@+id/divider7"
+            android:id="@+id/divider5"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_weight="1"
             android:background="?android:attr/listDivider" />
     </LinearLayout>
+
 </LinearLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,37 +11,68 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/txtNombresMI"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Ingrese Nombre" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/txtApellidosMI"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Ingrese Apellido" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/txtNombreArtisticoMI"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Ingrese Nombre Artistico" />
+                <EditText
+                    android:id="@+id/txtNombresMI"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Ingrese Nombre"
+                    android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/txtFNacimiento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date"
-            android:hint="Ingrese fecha de nacimiento"/>
+                <EditText
+                    android:id="@+id/txtApellidosMI"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Ingrese Apellido"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/txtNombreArtisticoMI"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Ingrese Nombre Artistico"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/txtFNacimiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Ingrese fecha de nacimiento"
+                    android:inputType="date" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgSelectImag"
+                    android:layout_width="match_parent"
+                    android:layout_height="125dp"
+                    android:src="@drawable/ic_menu_camera" />
+
+                <Button
+                    android:id="@+id/btnSeleccionarFoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Seleccionar Imagen" />
+
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,19 +100,12 @@
                 android:layout_weight="1"
                 android:text="Button" />
 
-
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/lblDatosMI"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerMI"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-
     </LinearLayout>
+
 </FrameLayout>

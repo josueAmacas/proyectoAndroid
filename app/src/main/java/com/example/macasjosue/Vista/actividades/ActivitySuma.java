@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.macasjosue.R;
 
@@ -32,9 +33,16 @@ public class ActivitySuma extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        int valor1 = Integer.parseInt(entrada1.getText().toString());
-        int valor2 = Integer.parseInt(entrada2.getText().toString());
-        int suma = valor1+valor2;
-        salida.setText(suma+"");
+        String n1 = entrada1.getText().toString();
+        String n2 = entrada2.getText().toString();
+        if(n1.length() == 0 || n2.length() == 0){
+            Toast.makeText(this, "Por favor llene todos los campos!!",  Toast.LENGTH_SHORT).show();
+        }else{
+
+            int valor1 = Integer.parseInt(n1);
+            int valor2 = Integer.parseInt(n2);
+            int suma = valor1+valor2;
+            salida.setText(suma+"");
+        }
     }
 }

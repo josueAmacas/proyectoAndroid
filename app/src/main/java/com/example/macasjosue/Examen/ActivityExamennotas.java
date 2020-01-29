@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +20,7 @@ public class ActivityExamennotas extends AppCompatActivity implements View.OnCli
 
     EditText cajanombres, cajamateria, cajaN1, cajaN2, cajaN3;
     TextView cajapromedio;
-    Button botonGuardar;
+    Button botonGuardar, botonListar;
     EstudiantesAdapter adapter;
     RecyclerView recycler;
     List<ModeloEstudiante> lista;
@@ -39,44 +40,11 @@ public class ActivityExamennotas extends AppCompatActivity implements View.OnCli
         cajaN3 = findViewById(R.id.txtNota3);
         cajapromedio = findViewById(R.id.lblPromedio);
         botonGuardar = findViewById(R.id.btnGuardar);
+        botonListar = findViewById(R.id.btnListarE);
         botonGuardar.setOnClickListener(this);
+        botonListar.setOnClickListener(this);
         recycler = findViewById(R.id.recyclerEstudiantes);
         lista = new ArrayList<ModeloEstudiante>();
-
-    }
-
-    @Override
-    public void onClick(View v) {
-        String nombre = cajanombres.getText().toString();
-        String materia = cajamateria.getText().toString();
-        int n1 = Integer.parseInt(cajaN1.getText().toString());
-        int n2 = Integer.parseInt(cajaN2.getText().toString());
-        int n3 = Integer.parseInt(cajaN3.getText().toString());
-        int prom = (n1+n2+n3) /3 ;
-        String apr = "";
-        if(prom > 6){
-            apr = "Estudiante Aprobado";
-            cajapromedio.setText(apr);
-        }else {
-            apr = "Estudiante Reprobado";
-            cajapromedio.setText(apr);
-        }
-
-
-        ModeloEstudiante estudiante = new ModeloEstudiante();
-        estudiante.setNombres(nombre);
-        estudiante.setMateria(materia);
-        estudiante.setNota1(n1);
-        estudiante.setNota2(n2);
-        estudiante.setNota3(n3);
-        estudiante.setPromedio(apr);
-        lista.add(estudiante);
-
-       cargarRecicler();
-
-    }
-
-    private void cargarRecicler(){
 
         ModeloEstudiante e = new ModeloEstudiante("Josue","fisica",8,5,10,"EstudianteAprobado");
         ModeloEstudiante e1 = new ModeloEstudiante("Andres","matematicas",10,6,5,"Estudiante Aprobado");
@@ -86,6 +54,52 @@ public class ActivityExamennotas extends AppCompatActivity implements View.OnCli
         lista.add(e1);
         lista.add(e2);
         lista.add(e3);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnGuardar:
+                String nombre = cajanombres.getText().toString();
+                String materia = cajamateria.getText().toString();
+                String nt1 = cajaN1.getText().toString();
+                String nt2 = cajaN2.getText().toString();
+                String nt3 = cajaN3.getText().toString();
+                if(nombre.length() == 0 || materia.length() == 0 || nt1.length() == 0 || nt2.length() == 0 || nt3.length() == 0){
+                    Toast.makeText(this, "Por favor llene todos los campos", Toast.LENGTH_SHORT).show();
+                }else {
+                    int n1 = Integer.parseInt(nt1);
+                    int n2 = Integer.parseInt(nt2);
+                    int n3 = Integer.parseInt(nt3);
+                    int prom = (n1+n2+n3) /3 ;
+                    String apr = "";
+                    if(prom > 6){
+                        apr = "Estudiante Aprobado";
+                        cajapromedio.setText(apr);
+                    }else {
+                        apr = "Estudiante Reprobado";
+                        cajapromedio.setText(apr);
+                    }
+                    ModeloEstudiante estudiante = new ModeloEstudiante();
+                    estudiante.setNombres(nombre);
+                    estudiante.setMateria(materia);
+                    estudiante.setNota1(n1);
+                    estudiante.setNota2(n2);
+                    estudiante.setNota3(n3);
+                    estudiante.setPromedio(apr);
+                    lista.add(estudiante);
+                    cargarRecicler();
+                }
+                break;
+            case  R.id.btnListarE:
+                cargarRecicler();
+                break;
+        }
+
+    }
+
+    private void cargarRecicler(){
         adapter = new EstudiantesAdapter(lista);
         recycler.setLayoutManager(new LinearLayoutManager(this));
         recycler.setAdapter(adapter);

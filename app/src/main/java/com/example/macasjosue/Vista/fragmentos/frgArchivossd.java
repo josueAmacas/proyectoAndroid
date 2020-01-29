@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.macasjosue.R;
 import com.example.macasjosue.Vista.adapter.ArtistaAdapter;
@@ -56,7 +57,6 @@ public class frgArchivossd extends Fragment implements View.OnClickListener {
 
     Button botonEscribir, botonLeer;
     EditText cajaNombres, cajaApellidos,cajaNombreArtistico,cajaFechaNacimiento;
-    TextView datos;
     RecyclerView recyclerViewMSD;
     ArtistaAdapter adapter;
     List<Artista> listaArtista;
@@ -100,7 +100,6 @@ public class frgArchivossd extends Fragment implements View.OnClickListener {
         cajaApellidos = vista.findViewById(R.id.txtApellidosMSD);
         cajaNombreArtistico= vista.findViewById(R.id.txtNombreArtisticoMSD);
         cajaFechaNacimiento = vista.findViewById(R.id.txtfechaNMSD);
-        datos = vista.findViewById(R.id.lblDatosMSD);
         botonEscribir.setOnClickListener(this);
         botonLeer.setOnClickListener(this);
         recyclerViewMSD = vista.findViewById(R.id.recyclerMSD);
@@ -157,21 +156,31 @@ public class frgArchivossd extends Fragment implements View.OnClickListener {
         switch (view.getId()){
             case R.id.btnEscribirMSD:
                 try{
-                    File rta = Environment.getExternalStorageDirectory();//ruta de la SD
-                    File file = new File(rta.getAbsoluteFile(), "archivo.txt");
-                    /*/File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "archivo.txt");
+                    String nom = cajaNombres.getText().toString();
+                    String ap = cajaApellidos.getText().toString();
+                    String NomA = cajaNombreArtistico.getText().toString();
+                    String FecN = cajaFechaNacimiento.getText().toString();
+                    if (nom.length() == 0 || ap.length() == 0 || NomA.length() == 0 || FecN.length() == 0){
+                        Toast.makeText(getContext(), "Por favor llene todos los campos!!",Toast.LENGTH_SHORT).show();
+                    }else {
+                        File rta = Environment.getExternalStorageDirectory();//ruta de la SD
+                        File file = new File(rta.getAbsoluteFile(), "archivo.txt");
+                    /*File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "archivo.txt");
                     OutputStreamWriter escribir = new OutputStreamWriter(new FileOutputStream(file));
                     escribir.write(cajaNombres.getText().toString()+","+ cajaApellidos.getText().toString() + ","+cajaNombreArtistico.getText().toString() +";");
                     escribir.close();*/
 
-                    FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
-                    BufferedWriter bw = new BufferedWriter(fw);
-                    bw.write(cajaNombres.getText().toString()+","+ cajaApellidos.getText().toString() + ","+cajaNombreArtistico.getText().toString() +"," +cajaFechaNacimiento.getText().toString() +";");
-                    bw.close();
-                    cajaNombres.setText("");
-                    cajaApellidos.setText("");
-                    cajaNombreArtistico.setText("");
-                    cajaFechaNacimiento.setText("");
+                        FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
+                        BufferedWriter bw = new BufferedWriter(fw);
+                        bw.write(nom+","+ ap+ ","+NomA+"," +FecN+";");
+                        bw.close();
+                        cajaNombres.setText("");
+                        cajaApellidos.setText("");
+                        cajaNombreArtistico.setText("");
+                        cajaFechaNacimiento.setText("");
+                        Toast.makeText(getContext(), "Agregado con exito!!",Toast.LENGTH_SHORT).show();
+                    }
+
                 } catch (Exception e){
                     Log.e("ERROR SD", e.getMessage());
                 }
@@ -182,7 +191,6 @@ public class frgArchivossd extends Fragment implements View.OnClickListener {
                     File file = new File(rut.getAbsoluteFile(), "archivo.txt");
                     BufferedReader lector = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
                     lineas = lector.readLine();
-                    datos.setText(lineas);
                     lector.close();
                     cargarRecycler();
                 }catch (Exception e){

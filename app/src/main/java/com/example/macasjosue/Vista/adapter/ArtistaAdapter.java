@@ -13,15 +13,18 @@ import com.example.macasjosue.modelo.Artista;
 
 import java.util.List;
 
-public class ArtistaAdapter extends RecyclerView.Adapter<ArtistaAdapter.ViewHolderArtista> {
+public class ArtistaAdapter extends RecyclerView.Adapter<ArtistaAdapter.ViewHolderArtista> implements View.OnClickListener{
+
     List <Artista> lista;
     public ArtistaAdapter(List<Artista> lista){
         this.lista = lista;
     }
+    public View.OnClickListener click;
 
     @Override
     public ViewHolderArtista onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_artista, null);
+        view.setOnClickListener(this);
         return new ViewHolderArtista(view);
     }
 
@@ -38,6 +41,17 @@ public class ArtistaAdapter extends RecyclerView.Adapter<ArtistaAdapter.ViewHold
     @Override
     public int getItemCount() {
         return lista.size();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(click != null){
+            click.onClick(v);
+        }
+    }
+
+    public void setOnClickListener(View.OnClickListener listener){
+        this.click = listener;
     }
 
     public static  class ViewHolderArtista extends RecyclerView.ViewHolder {

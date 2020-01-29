@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.macasjosue.R;
 import com.example.macasjosue.Vista.adapter.AdapterProductos;
@@ -66,6 +67,7 @@ public class ActivityProductohelper extends AppCompatActivity implements View.On
         precio.setText(prec+"");
         cantidad.setText(cant+"");
     }
+
     private void vaciarTexto(){
         codigo.setText("");
         descripcion.setText("");
@@ -89,42 +91,70 @@ public class ActivityProductohelper extends AppCompatActivity implements View.On
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnAgregarProducto:
-                Producto p = new Producto();
-                p.setCodigo(Integer.parseInt(codigo.getText().toString()));
-                p.setDescripcion(descripcion.getText().toString());
-                p.setPrecio(Double.parseDouble(precio.getText().toString()));
-                p.setCantidad(Integer.parseInt(cantidad.getText().toString()));
-                helperproducto.insertar(p);
-                vaciarTexto();
+                String codi = codigo.getText().toString();
+                String desc = descripcion.getText().toString();
+                String prec = precio.getText().toString();
+                String cant = cantidad.getText().toString();
+                if(codi.length() ==0 || desc.length() == 0 || prec.length() == 0 || cant.length() == 0){
+                    Toast.makeText(this, "Debe llenar todos los campos!!",  Toast.LENGTH_SHORT).show();
+                }else {
+                    Producto p = new Producto();
+                    p.setCodigo(Integer.parseInt(codi));
+                    p.setDescripcion(desc);
+                    p.setPrecio(Double.parseDouble(prec));
+                    p.setCantidad(Integer.parseInt(cant));
+                    helperproducto.insertar(p);
+                    vaciarTexto();
+                    Toast.makeText(this, "Producto Agregado con exito!!",  Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.btnListarProducto:
                 listaProductos = helperproducto.getAll();
                cargarRecycler(listaProductos);
                 break;
             case R.id.btnModificarProducto:
-                Producto p2 = new Producto();
-                p2.setCodigo(Integer.parseInt(codigo.getText().toString()));
-                p2.setDescripcion(descripcion.getText().toString());
-                p2.setPrecio(Double.parseDouble(precio.getText().toString()));
-                p2.setCantidad(Integer.parseInt(cantidad.getText().toString()));
-                helperproducto.modificar(p2);
-                vaciarTexto();
+                String codig = codigo.getText().toString();
+                String descr = descripcion.getText().toString();
+                String preci = precio.getText().toString();
+                String canti = cantidad.getText().toString();
+                if(codig.length() ==0 || descr.length() == 0 || preci.length() == 0 || canti.length() == 0){
+                    Toast.makeText(this, "Debe seleccionar un producto para modificar!!",  Toast.LENGTH_SHORT).show();
+                }else {
+                    Producto p2 = new Producto();
+                    p2.setCodigo(Integer.parseInt(codig));
+                    p2.setDescripcion(descr);
+                    p2.setPrecio(Double.parseDouble(preci));
+                    p2.setCantidad(Integer.parseInt(canti));
+                    helperproducto.modificar(p2);
+                    vaciarTexto();
+                    Toast.makeText(this, "Producto Modificado con exito!!",  Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.btnEliminarTodoProducto:
                 helperproducto.eliminarTodo();
                 vaciarTexto();
+                Toast.makeText(this, "Se han eliminado todos los registros!!",  Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btnEliminarCodigo:
                 cod = codigo.getText().toString();
-                Producto prd = new Producto();
-                prd.setCodigo(Integer.parseInt(cod));
-                helperproducto.eliminarCodigo(prd);
-                vaciarTexto();
+                if(cod.length() == 0){
+                    Toast.makeText(this, "Por favor ingrese codigo para poder eliminar producto!!",  Toast.LENGTH_SHORT).show();
+                } else {
+                    Producto prd = new Producto();
+                    prd.setCodigo(Integer.parseInt(cod));
+                    helperproducto.eliminarCodigo(prd);
+                    vaciarTexto();
+                    Toast.makeText(this, "Producto Eliminado con exito!!",  Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.btnListarCodigoProducto:
                 cod = codigo.getText().toString();
-                listaProductos = helperproducto.getProductoByCodigo(cod);
-                cargarRecycler(listaProductos);
+                if(cod.length() == 0){
+                    Toast.makeText(this, "Por favor ingrese codigo para poder buscar producto!!",  Toast.LENGTH_SHORT).show();
+                } else {
+                    listaProductos = helperproducto.getProductoByCodigo(cod);
+                    cargarRecycler(listaProductos);
+                }
                 break;
         }
 

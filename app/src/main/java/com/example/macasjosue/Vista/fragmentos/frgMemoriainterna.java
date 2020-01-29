@@ -1,6 +1,7 @@
 package com.example.macasjosue.Vista.fragmentos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -8,13 +9,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.macasjosue.R;
 import com.example.macasjosue.Vista.adapter.ArtistaAdapter;
@@ -50,9 +54,9 @@ public class frgMemoriainterna extends Fragment implements View.OnClickListener 
         // Required empty public constructor
     }
 
-    Button botonGuardar, botonBuscarTodos;
+    Button botonSeleccionarImg,botonGuardar, botonBuscarTodos;
     EditText cajaNombres, cajaApellidos,cajaNombreArtistico, cajaFechaNacimiento;
-    TextView datos;
+    ImageView fotoCargada;
     RecyclerView recyclerViewMI;
     ArtistaAdapter adapter;
     List<Artista> listaArtista;
@@ -95,11 +99,12 @@ public class frgMemoriainterna extends Fragment implements View.OnClickListener 
         cajaApellidos = vista.findViewById(R.id.txtApellidosMI);
         cajaNombreArtistico= vista.findViewById(R.id.txtNombreArtisticoMI);
         cajaFechaNacimiento = vista.findViewById(R.id.txtFNacimiento);
-        datos =vista.findViewById(R.id.lblDatosMI);
+        fotoCargada = vista.findViewById(R.id.imgSelectImag);
+        botonSeleccionarImg = vista.findViewById(R.id.btnSeleccionarFoto);
         botonGuardar.setOnClickListener(this);
         botonBuscarTodos.setOnClickListener(this);
+        botonSeleccionarImg.setOnClickListener(this);
         recyclerViewMI = vista.findViewById(R.id.recyclerMI);
-        // Inflate the layout for this fragment
         return vista;
     }
 
@@ -108,13 +113,14 @@ public class frgMemoriainterna extends Fragment implements View.OnClickListener 
         String[] registro = lineas.split(";");
         String[] lista;
 
-        for (int i=0 ; i<registro.length; i++){
+        for (int i=0 ; i< registro.length; i++){
             Artista artista = new Artista();
             lista = registro[i].split(",");
             artista.setNombres(lista[0]);
             artista.setApellidos(lista[1]);
             artista.setNombreArtistico(lista[2]);
             artista.setFechaNacimiento(lista[3]);
+            artista.setFoto(Integer.parseInt(lista[4]));
             listaArtista.add(artista);
         }
 
@@ -148,19 +154,44 @@ public class frgMemoriainterna extends Fragment implements View.OnClickListener 
         mListener = null;
     }
 
+    private void cargarImagen(){
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("image/");
+        startActivityForResult(intent.createChooser(intent,"Seleccione la Aplicacion"),10);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == getActivity().RESULT_OK){
+            Uri path = data.getData();
+            fotoCargada.setImageURI(path);
+        }
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnGuardarMI:
                 try{
-                    OutputStreamWriter escribir = new OutputStreamWriter(getActivity().openFileOutput("Archivoartistas.txt", Context.MODE_APPEND));
-                    escribir.write(cajaNombres.getText().toString()+","+ cajaApellidos.getText().toString() + ","+cajaNombreArtistico.getText().toString() +","+cajaFechaNacimiento.getText().toString()+";");
-                    escribir.close();
-                    cajaNombres.setText("");
-                    cajaApellidos.setText("");
-                    cajaNombreArtistico.setText("");
-                    cajaFechaNacimiento.setText("");
-
+                    String nom = cajaNombres.getText().toString();
+                    String ap = cajaApellidos.getText().toString();
+                    String NomA = cajaNombreArtistico.getText().toString();
+                    String FecN = cajaFechaNacimiento.getText().toString();
+                    String foto = fotoCargada.getResources().toString();
+                    if (nom.length() == 0 || ap.length() == 0 || NomA.length() == 0 || FecN.length() == 0 || foto.length() == 0){
+                        Toast.makeText(getContext(), "Por favor llene todos los campos!!",Toast.LENGTH_SHORT).show();
+                    }else {
+                        OutputStreamWriter escribir = new OutputStreamWriter(getActivity().openFileOutput("Archivoartistas.txt", Context.MODE_APPEND));
+                        escribir.write(nom +","+ ap + ","+NomA +","+FecN+","+foto+";");
+                        escribir.close();
+                        cajaNombres.setText("");
+                        cajaApellidos.setText("");
+                        cajaNombreArtistico.setText("");
+                        cajaFechaNacimiento.setText("");
+                        fotoCargada.setImageResource(R.drawable.ic_menu_camera);
+                        Toast.makeText(getContext(), "Agregado con exito!!",Toast.LENGTH_SHORT).show();
+                    }
                 } catch (Exception e){
                     Log.e("archivoMI","Ha ocurrido un error" + e.getMessage());
                 }
@@ -169,12 +200,15 @@ public class frgMemoriainterna extends Fragment implements View.OnClickListener 
                 try {
                     BufferedReader lector = new BufferedReader(new InputStreamReader(getActivity().openFileInput("Archivoartistas.txt")));
                     lineas = lector.readLine();
-                    datos.setText(lineas);
+                    Log.e("Success",lineas+"");
                     lector.close();
                     cargarRecycler();
                 }catch (Exception e){
                     Log.e("archivoMI","Ha ocurrido un error" + e.getMessage());
                 }
+                break;
+            case R.id.btnSeleccionarFoto:
+                cargarImagen();
                 break;
         }
     }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.macasjosue.R;
 
@@ -38,38 +39,46 @@ public class ActivitySueldos extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        htrabajadas = Integer.parseInt(horasTrabajadas.getText().toString());
-        precioh = Integer.parseInt(precioHora.getText().toString());
-        int snormal =  0;
-        int horasE = 0;
-        int sextra = 0;
-        int tazaI = 0;
-        int sneto = 0;
+        String ht = horasTrabajadas.getText().toString();
+        String ph = precioHora.getText().toString();
+        if(ht.length() == 0 || ph.length() == 0){
+            Toast.makeText(this, "Por favor llene todos los campos", Toast.LENGTH_SHORT).show();
+        } else {
+            htrabajadas = Integer.parseInt(ht);
+            precioh = Integer.parseInt(ph);
 
-        if(htrabajadas < 41){
-            snormal = htrabajadas * precioh;
-            sueldoNormal.setText("El sueldo normal es: " + snormal);
-            horasExtra.setText("Las horas extra son: "+ 0);
-            sueldoExtra.setText("El sueldo extra es: " + 0);
+            int snormal =  0;
+            int horasE = 0;
+            int sextra = 0;
+            int tazaI = 0;
+            int sneto = 0;
 
-        }else {
-            snormal = 40 * precioh;
-            sueldoNormal.setText("El sueldo normal es: "+ snormal);
-            horasE = htrabajadas - 40;
-            horasExtra.setText("Las horas extra son: "+horasE);
-            sextra = (int) (horasE * precioh * 1.5);
-            sueldoExtra.setText("El sueldo extra es: "+ sextra);
+            if(htrabajadas < 41){
+                snormal = htrabajadas * precioh;
+                sueldoNormal.setText("El sueldo normal es: " + snormal);
+                horasExtra.setText("Las horas extra son: "+ 0);
+                sueldoExtra.setText("El sueldo extra es: " + 0);
+
+            }else {
+                snormal = 40 * precioh;
+                sueldoNormal.setText("El sueldo normal es: "+ snormal);
+                horasE = htrabajadas - 40;
+                horasExtra.setText("Las horas extra son: "+horasE);
+                sextra = (int) (horasE * precioh * 1.5);
+                sueldoExtra.setText("El sueldo extra es: "+ sextra);
+            }
+
+            if(snormal > 200){
+                tazaI = (int) ((snormal - 200) * 0.10);
+                tazaimpuesto.setText("La taza de impuesto es: " + tazaI);
+            }else {
+                tazaimpuesto.setText("La taza de impuesto es: " + 0);
+            }
+
+            sneto = snormal + sextra - tazaI;
+            sueldoNeto.setText("El sueldo neto es: " +sneto);
+
         }
-
-        if(snormal > 200){
-            tazaI = (int) ((snormal - 200) * 0.10);
-            tazaimpuesto.setText("La taza de impuesto es: " + tazaI);
-        }else {
-            tazaimpuesto.setText("La taza de impuesto es: " + 0);
-        }
-
-        sneto = snormal + sextra - tazaI;
-        sueldoNeto.setText("El sueldo neto es: " +sneto);
 
     }
 }

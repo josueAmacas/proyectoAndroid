@@ -24,7 +24,7 @@ import com.example.macasjosue.modelo.Comunicador;
  * Use the {@link Frgescuchar1#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Frgescuchar1 extends Fragment implements  View.OnClickListener{
+public class Frgescuchar1 extends Fragment implements  View.OnClickListener {
     Button boton;
     int contador = 0;
     Comunicador comunicador;

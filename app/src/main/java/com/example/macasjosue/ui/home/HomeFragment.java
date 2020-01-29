@@ -4,32 +4,48 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.Nullable;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.macasjosue.R;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener{
 
-    private HomeViewModel homeViewModel;
+    private EditText entrada1;
+    private EditText entrada2;
+    private TextView respuesta;
+    private Button suma;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        entrada1 = root.findViewById(R.id.txtE1);
+        entrada2 = root.findViewById(R.id.txtE2);
+        respuesta = root.findViewById(R.id.txtRespuestaS);
+        suma = root.findViewById(R.id.btnCalcularS);
+        suma.setOnClickListener(this);
         return root;
+    }
+
+    @Override
+    public void onClick(View v) {
+        String n1 = entrada1.getText().toString();
+        String n2 = entrada2.getText().toString();
+        if(n1.length() == 0 || n2.length() == 0){
+            Toast.makeText(getContext(), "Por favor llene todos los campos!!",  Toast.LENGTH_SHORT).show();
+        }else{
+
+            int valor1 = Integer.parseInt(n1);
+            int valor2 = Integer.parseInt(n2);
+            int suma = valor1+valor2;
+            respuesta.setText(suma+"");
+        }
     }
 }

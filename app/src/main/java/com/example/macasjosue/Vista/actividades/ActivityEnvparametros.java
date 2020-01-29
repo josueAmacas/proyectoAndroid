@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.macasjosue.R;
 
@@ -31,16 +32,23 @@ public class ActivityEnvparametros extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View v) {
-        Bundle bundle =  new Bundle();
-        Intent intent = new Intent(ActivityEnvparametros.this, Activity_Recibirparametros.class);
-        //intent.putExtra("nombre",cajanombre.getText()+"");
-        //intent.putExtra("apellido",cajaApellido.getText()+"");
-        bundle.putString("nombre",cajanombre.getText()+"");
-        bundle.putString("apellido",cajaApellido.getText()+"");
-        intent.putExtras(bundle);
-        startActivity(intent);
-        cajanombre.setText("");
-        cajaApellido.setText("");
+        String nombre = cajanombre.getText().toString();
+        String apellido = cajaApellido.getText().toString();
+        if(nombre.length() == 0 || apellido.length() == 0){
+            Toast.makeText(this, "Por favor llene todos los campos", Toast.LENGTH_SHORT).show();
+        }else {
+            Bundle bundle =  new Bundle();
+            Intent intent = new Intent(ActivityEnvparametros.this, Activity_Recibirparametros.class);
+            //intent.putExtra("nombre",cajanombre.getText()+"");
+            //intent.putExtra("apellido",cajaApellido.getText()+"");
+            bundle.putString("nombre",nombre);
+            bundle.putString("apellido",apellido);
+            intent.putExtras(bundle);
+            startActivity(intent);
+            cajanombre.setText("");
+            cajaApellido.setText("");
+        }
+
 
     }
 }

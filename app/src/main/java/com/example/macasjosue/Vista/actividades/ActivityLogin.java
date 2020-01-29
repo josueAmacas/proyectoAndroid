@@ -31,7 +31,13 @@ public class ActivityLogin extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(ActivityLogin.this, "Usuario: " + cajaUsuario.getText() +
-                "    Clave: " + cajaPassword.getText(), Toast.LENGTH_SHORT).show();
+        String user = cajaUsuario.getText().toString();
+        String pass =cajaPassword.getText().toString();
+        if(user.length() == 0 || pass.length() == 0){
+            Toast.makeText(this, "Por favor llene todos los campos", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "Usuario: " + user + "    Clave: " + pass, Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

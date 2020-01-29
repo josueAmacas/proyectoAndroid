@@ -2,17 +2,22 @@ package com.example.macasjosue;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.example.macasjosue.Examen.ActivityExamennotas;
 import com.example.macasjosue.Vista.actividades.ActivityArchivos;
+import com.example.macasjosue.Vista.actividades.ActivityCarroORM;
 import com.example.macasjosue.Vista.actividades.ActivityEnvparametros;
 import com.example.macasjosue.Vista.actividades.ActivityFragment2;
 import com.example.macasjosue.Vista.actividades.ActivityLogin;
 import com.example.macasjosue.Vista.actividades.ActivityProductohelper;
+import com.example.macasjosue.Vista.actividades.ActivitySWLumen;
 import com.example.macasjosue.Vista.actividades.ActivitySueldos;
 import com.example.macasjosue.Vista.actividades.ActivitySuma;
 import com.example.macasjosue.Vista.fragmentos.fragmento;
+import com.example.macasjosue.ui.gallery.GalleryFragment;
+import com.example.macasjosue.ui.pincipal.PrincipalFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -21,6 +26,8 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -38,7 +45,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class ActivityNavigationdrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class ActivityNavigationdrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -59,13 +66,15 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements Navig
         });
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
+                R.id.nav_tools, R.id.nav_share, R.id.nav_send,R.id.nav_principal)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -115,36 +124,22 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements Navig
                 botorSumarDlg.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        int n1 = Integer.parseInt(cajaN1.getText().toString());
-                        int n2 = Integer.parseInt(cajaN2.getText().toString());
-                        int suma = n1 + n2;
-                        Toast.makeText(ActivityNavigationdrawer.this, "La suma es:  "+ suma,Toast.LENGTH_SHORT).show();
-                        dlgSumar.hide();
+                        String v1 = cajaN1.getText().toString();
+                        String v2 = cajaN2.getText().toString();
+                        if(v1.length() ==0 || v2.length() == 0){
+                            Toast.makeText(ActivityNavigationdrawer.this, "Por favor llene todos los campos!!",Toast.LENGTH_SHORT).show();
+                        } else {
+                            int n1 = Integer.parseInt(v1);
+                            int n2 = Integer.parseInt(v2);
+                            int suma = n1 + n2;
+                            Toast.makeText(ActivityNavigationdrawer.this, "La suma es:  "+ suma,Toast.LENGTH_SHORT).show();
+                            dlgSumar.hide();
+                        }
                     }
                 });
 
                 dlgSumar.show();
                 break;
-            /*case R.id.opcionArtistas:
-                intent = new Intent(this, ActivityRecyclerartistas.class);
-                startActivity(intent);
-                break;
-            case R.id.opcionInterno:
-                intent = new Intent(this, ActivityMemoriainterna.class);
-                startActivity(intent);
-                break;
-            case R.id.opcionPrograma:
-                intent = new Intent(this, ActivityMemoriaprograma.class);
-                startActivity(intent);
-                break;
-            case R.id.opcionArchivoReyes:
-                intent = new Intent(this, ActivityProgramareyes.class);
-                startActivity(intent);
-                break;
-            case R.id.opcionArchivosSD:
-                intent = new Intent(this, ActivityArchivomemoriasd.class);
-                startActivity(intent);
-                break;*/
             case R.id.opcionArchivos:
                 intent = new Intent(this, ActivityArchivos.class);
                 startActivity(intent);
@@ -161,6 +156,14 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements Navig
                 intent = new Intent(this, ActivityExamennotas.class);
                 startActivity(intent);
                 break;
+            case R.id.opcionORM:
+                intent = new Intent(this, ActivityCarroORM.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionHilo:
+                intent = new Intent(this, ActivitySWLumen.class);
+                startActivity(intent);
+                break;
         }
 
         return super.onOptionsItemSelected(item);
@@ -174,26 +177,12 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements Navig
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem menuItem) {
-
-        int id = menuItem.getItemId();
-
-        if(id == R.id.nav_home){
-
-        }else if(id == R.id.nav_gallery){
-
-        }else if(id == R.id.nav_slideshow){
-
-        }else if(id == R.id.nav_tools){
-
-        }else if(id == R.id.nav_share){
-
-        }else if(id == R.id.nav_send){
-
-        }
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

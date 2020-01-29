@@ -50,7 +50,6 @@ public class frgMemoriaprograma extends Fragment implements View.OnClickListener
     }
 
     Button botonLeer;
-    TextView cajaverArchivo;
     RecyclerView recyclerViewArtistas;
     ArtistaAdapter adapter;
     List<Artista> listaArtista;
@@ -92,7 +91,6 @@ public class frgMemoriaprograma extends Fragment implements View.OnClickListener
         View vista = inflater.inflate(R.layout.fragment_frg_memoriaprograma, container, false);
         recyclerViewArtistas = vista.findViewById(R.id.recyclerLeerArchivo);
         botonLeer = vista.findViewById(R.id.btnLeer);
-        cajaverArchivo = vista.findViewById(R.id.lblLeer);
         botonLeer.setOnClickListener(this);
         return vista;
     }
@@ -148,7 +146,6 @@ public class frgMemoriaprograma extends Fragment implements View.OnClickListener
             input = getResources().openRawResource(R.raw.archivoraw);
             lector = new BufferedReader(new InputStreamReader(input));
             cadena = lector.readLine();
-            //cajaverArchivo.setText(cadena);
             cargarRecycler();
         } catch (Exception e){
             Log.e("archivoraw.txt","Ha ocurrido un error" + e.getMessage());

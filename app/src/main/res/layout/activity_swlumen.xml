@@ -1,40 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Vista.actividades.ActivitySWLumen">
 
     <EditText
-        android:id="@+id/txtCodigoP2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberSigned"
-        android:hint="Ingrese Codigo"/>
-
-    <EditText
-        android:id="@+id/txtDescripcionP2"
+        android:id="@+id/txtIdSWHilo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Ingrese Descripcion" />
+        android:hint="Ingrese ID" />
 
     <EditText
-        android:id="@+id/txtPrecioP2"
+        android:id="@+id/txtNombreSWHilo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="Ingrese Precio"/>
+        android:inputType="textPersonName"
+        android:hint="Ingrese Nombre" />
 
     <EditText
-        android:id="@+id/txtCantidadP2"
+        android:id="@+id/txtDireccionSWHilo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"
-        android:hint="Ingrese Cantidad"/>
+        android:inputType="textPersonName"
+        android:hint="Ingrese Direccion" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,26 +36,25 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnAgregarProducto2"
+            android:id="@+id/btnAgregarAlumno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Agregar" />
 
         <Button
-            android:id="@+id/btnListarProducto2"
+            android:id="@+id/btnListarTodosAlumnos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="L.Todos" />
+            android:text="Listar T." />
 
         <Button
-            android:id="@+id/btnModificarProducto2"
+            android:id="@+id/btnEliminarTodoalumno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Modificar" />
-
+            android:text="Eliminar T." />
     </LinearLayout>
 
     <LinearLayout
@@ -70,32 +63,36 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnEliminarCodigo2"
+            android:id="@+id/btnBuscarIdAlumno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="E.Codigo" />
+            android:text="Buscar ID" />
 
         <Button
-            android:id="@+id/btnEliminarTodoProducto2"
+            android:id="@+id/btnModificarAlumno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="E. Todo" />
+            android:text="Modificar" />
 
         <Button
-            android:id="@+id/btnListarCodigoProducto2"
+            android:id="@+id/btnEliminarIdAlumno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Listar Codigo" />
-
+            android:text="Eliminar ID" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/lblDatosSW"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerProductos2"
+        android:id="@+id/recyclerAlumnos"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 
 </LinearLayout>

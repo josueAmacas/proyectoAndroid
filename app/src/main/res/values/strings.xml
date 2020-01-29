@@ -11,6 +11,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string name="menu_principal">Principal</string>
     <string name="menu_home">Eventos</string>
     <string name="menu_gallery">Fragmentos</string>
     <string name="menu_slideshow">Sensores</string>

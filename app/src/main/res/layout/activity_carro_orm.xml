@@ -1,40 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Vista.actividades.ActivityCarroORM">
 
     <EditText
-        android:id="@+id/txtCodigoP2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberSigned"
-        android:hint="Ingrese Codigo"/>
-
-    <EditText
-        android:id="@+id/txtDescripcionP2"
+        android:id="@+id/txtPlaca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Ingrese Descripcion" />
+        android:hint="Ingrese placa" />
 
     <EditText
-        android:id="@+id/txtPrecioP2"
+        android:id="@+id/txtMarca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="Ingrese Precio"/>
+        android:inputType="textPersonName"
+        android:hint="Ingrese Marca" />
 
     <EditText
-        android:id="@+id/txtCantidadP2"
+        android:id="@+id/txtModeloCarro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Ingrese modelo" />
+
+    <EditText
+        android:id="@+id/txtAnio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
-        android:hint="Ingrese Cantidad"/>
+        android:hint="Ingrese Anio"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,26 +44,25 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnAgregarProducto2"
+            android:id="@+id/btnAgregarCarro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Agregar" />
 
         <Button
-            android:id="@+id/btnListarProducto2"
+            android:id="@+id/btnListarTodosCarros"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="L.Todos" />
+            android:text="Listar T." />
 
         <Button
-            android:id="@+id/btnModificarProducto2"
+            android:id="@+id/btnEliminarTodoCarro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Modificar" />
-
+            android:text="Eliminar T." />
     </LinearLayout>
 
     <LinearLayout
@@ -70,32 +71,32 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnEliminarCodigo2"
+            android:id="@+id/btnBuscarPlaca"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="E.Codigo" />
+            android:text="Buscar Placa" />
 
         <Button
-            android:id="@+id/btnEliminarTodoProducto2"
+            android:id="@+id/btnModificarCarro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="E. Todo" />
+            android:text="Modificar" />
 
         <Button
-            android:id="@+id/btnListarCodigoProducto2"
+            android:id="@+id/btnEliminarPlaca"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Listar Codigo" />
-
+            android:text="Eliminar Placa" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerProductos2"
+        android:id="@+id/recyclerCarro"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

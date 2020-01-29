@@ -17,12 +17,6 @@
             android:layout_height="wrap_content"
             android:text="Leer Archivo" />
 
-        <TextView
-            android:id="@+id/lblLeer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerLeerArchivo"
             android:layout_width="match_parent"

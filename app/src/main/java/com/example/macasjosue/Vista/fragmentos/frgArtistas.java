@@ -1,5 +1,6 @@
 package com.example.macasjosue.Vista.fragmentos;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,7 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.macasjosue.ActivityNavigationdrawer;
 import com.example.macasjosue.R;
 import com.example.macasjosue.Vista.adapter.ArtistaAdapter;
 import com.example.macasjosue.modelo.Artista;
@@ -27,7 +34,7 @@ import java.util.List;
  * Use the {@link frgArtistas#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class frgArtistas extends Fragment {
+public class frgArtistas extends Fragment implements View.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -120,9 +127,30 @@ public class frgArtistas extends Fragment {
         listaArtista.add(artista4);
 
         adapter = new ArtistaAdapter(listaArtista);
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cargarDatos(v);
+            }
+        });
         recyclerViewArtistas.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewArtistas.setAdapter(adapter);
 
+    }
+
+    public void cargarDatos(View v){
+        final Dialog dlgArtista = new Dialog(getContext());
+        dlgArtista.setContentView(R.layout.dlg_artistas);
+        final TextView NomA = dlgArtista.findViewById(R.id.lblNArtistico);
+        final TextView FNac = dlgArtista.findViewById(R.id.lblFNacimiento);
+        final ImageView Img = dlgArtista.findViewById(R.id.imgArtistadlg);
+        String nA= listaArtista.get(recyclerViewArtistas.getChildAdapterPosition(v)).getNombreArtistico();
+        String fN = listaArtista.get(recyclerViewArtistas.getChildAdapterPosition(v)).getFechaNacimiento();
+        int FA = listaArtista.get(recyclerViewArtistas.getChildAdapterPosition(v)).getFoto();
+        NomA.setText(nA+"");
+        FNac.setText(fN+"");
+        Img.setImageResource(FA);
+        dlgArtista.show();
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -147,6 +175,11 @@ public class frgArtistas extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 
     /**
