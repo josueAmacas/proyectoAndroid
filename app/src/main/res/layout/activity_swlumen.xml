@@ -84,12 +84,6 @@
             android:text="Eliminar ID" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/lblDatosSW"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerAlumnos"
         android:layout_width="match_parent"

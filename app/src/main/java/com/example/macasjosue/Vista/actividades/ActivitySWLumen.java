@@ -27,14 +27,12 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class ActivitySWLumen extends AppCompatActivity implements View.OnClickListener {
 
     Button botonAgregar,botonModificar,botonListarTodos,botonEliminar,botonBuscar,botonEliminarTodos;
     EditText cajaId, cajaNombre, cajaDireccion;
-    TextView datos;
     AlumnoAdapter adapter;
     RecyclerView recyclerAlumno;
     List<Alumno> listaAlumnos;
@@ -74,7 +72,6 @@ public class ActivitySWLumen extends AppCompatActivity implements View.OnClickLi
                         InputStream in = new BufferedInputStream(conexion.getInputStream());
                         BufferedReader lector = new BufferedReader(new InputStreamReader(in));
                         consulta += lector.readLine();
-                        //cargarRecycler(consulta);
                         lector.close();
                         Toast.makeText(ActivitySWLumen.this,consulta+"",Toast.LENGTH_SHORT).show();
                         Log.e("mensaje",consulta);
@@ -85,7 +82,6 @@ public class ActivitySWLumen extends AppCompatActivity implements View.OnClickLi
                     }
                 }catch (Exception ex){
                     Log.e("mensaje","no hubo coneccion");
-                   // Toast.makeText(ActivitySWLumen.this,"No hay coneccion",Toast.LENGTH_SHORT).show();
                 }
             }
             return consulta;
@@ -93,8 +89,6 @@ public class ActivitySWLumen extends AppCompatActivity implements View.OnClickLi
 
         @Override
         protected void onPostExecute(String s) {
-            //super.onPostExecute(s);
-            //datos.setText(s);
             cargarRecycler(consulta);
         }
     }
@@ -112,23 +106,25 @@ public class ActivitySWLumen extends AppCompatActivity implements View.OnClickLi
                 alum.setDireccionalumno(a.getString("direccion"));
                 listaAlumnos.add(alum);
             }
-
             adapter = new AlumnoAdapter(listaAlumnos);
+            adapter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    cargarDatos(v);
+                }
+            });
             recyclerAlumno.setLayoutManager(new LinearLayoutManager(this));
             recyclerAlumno.setAdapter(adapter);
 
         }catch (Exception ex){
             Toast.makeText(this,"Hubo error cargar Recycler",Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
     private void cargarComponentes(){
         cajaId = findViewById(R.id.txtIdSWHilo);
         cajaNombre= findViewById(R.id.txtNombreSWHilo);
         cajaDireccion= findViewById(R.id.txtDireccionSWHilo);
-        datos = findViewById(R.id.lblDatosSW);
         recyclerAlumno = findViewById(R.id.recyclerAlumnos);
 
         botonAgregar = findViewById(R.id.btnAgregarAlumno);
@@ -146,6 +142,14 @@ public class ActivitySWLumen extends AppCompatActivity implements View.OnClickLi
         botonListarTodos.setOnClickListener(this);
     }
 
+    private void cargarDatos(View v){
+        String id = listaAlumnos.get(recyclerAlumno.getChildAdapterPosition(v)).getIdalumno();
+        String nombre= listaAlumnos.get(recyclerAlumno.getChildAdapterPosition(v)).getNombrealumno();
+        String direccion = listaAlumnos.get(recyclerAlumno.getChildAdapterPosition(v)).getDireccionalumno();
+        cajaId.setText(id+"");
+        cajaNombre.setText(nombre+"");
+        cajaDireccion.setText(direccion+"");
+    }
 
     @Override
     public void onClick(View v) {
@@ -156,7 +160,6 @@ public class ActivitySWLumen extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.btnListarTodosAlumnos:
                 sw.execute(host.concat(get),"1");
-                Toast.makeText(ActivitySWLumen.this,"Listar",Toast.LENGTH_SHORT).show();
                 break;
         }
     }
