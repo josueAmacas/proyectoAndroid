@@ -19,4 +19,5 @@
     <string name="menu_share">DB</string>
     <string name="menu_send">SW</string>
     <string name="menu_mapas">Mapas</string>
+    <string name="title_activity_mapa">Map</string>
 </resources>

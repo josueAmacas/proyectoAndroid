@@ -4,28 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.macasjosue.R;
 import com.example.macasjosue.Vista.adapter.AlumnoAdapter;
+import com.example.macasjosue.controlador.SWAlumnosHilo;
 import com.example.macasjosue.modelo.Alumno;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,13 +32,13 @@ public class ActivitySWLumen extends AppCompatActivity implements View.OnClickLi
 
     //definimos url del servicio web
     String host = "http://reneguaman.000webhostapp.com";
-    String insert = "/insertar_allumno.php";
+    String insert = "/insertar_alumno.php";
     String get = "/obtener_alumnos.php";
     String getById = "/obtener_alumno_por_id.php";
     String Update = "/actualizar_alumno.php";
     String Delete = "/borrar_alumno.php";
 
-    ServicioWeb sw ;
+    SWAlumnosHilo sw ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,43 +47,38 @@ public class ActivitySWLumen extends AppCompatActivity implements View.OnClickLi
         cargarComponentes();
     }
 
-    //acceder al servicio web mediante Hilo
-    class ServicioWeb extends AsyncTask<String, Void,String>{
-        String consulta ="";
-
-        @Override
-        protected String doInBackground(String... parametros) {
-
-            URL url = null;
-            String ruta = parametros[0]; //esta es la ruta..... http://reneguaman..../obtener_alumnos.php
-            if(parametros[1].equals("1")){
-                try {
-                    url = new URL(ruta);
-                    HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
-                    int codigoRespuesta = conexion.getResponseCode();
-                    if (codigoRespuesta == HttpURLConnection.HTTP_OK){
-                        InputStream in = new BufferedInputStream(conexion.getInputStream());
-                        BufferedReader lector = new BufferedReader(new InputStreamReader(in));
-                        consulta += lector.readLine();
-                        lector.close();
-                        Toast.makeText(ActivitySWLumen.this,consulta+"",Toast.LENGTH_SHORT).show();
-                        Log.e("mensaje",consulta);
-                    }else {
-                        consulta += "no hubo conexion";
-                        Toast.makeText(ActivitySWLumen.this,"No hay coneccion",Toast.LENGTH_SHORT).show();
-                        Log.e("mensaje","no hay coneccion");
-                    }
-                }catch (Exception ex){
-                    Log.e("mensaje","no hubo coneccion");
-                }
+    private void cargarByYD(String cadena){
+        try {
+            JSONObject json = new JSONObject(cadena);
+            String estado = json.getString("estado");
+            List<Alumno> lista = new ArrayList<>();
+            if(estado.equals("1")){
+                Alumno alumno = new Alumno();
+                alumno.setIdalumno(Integer.parseInt(json.getJSONObject("alumno").getString("idAlumno")));
+                alumno.setNombrealumno(json.getJSONObject("alumno").getString("nombre"));
+                alumno.setDireccionalumno(json.getJSONObject("alumno").getString("direccion"));
+                lista.add(alumno);
+                cargarLista(lista);
+            }else{
+                Toast.makeText(getApplicationContext(),"No existe estudiante", Toast.LENGTH_SHORT).show();
             }
-            return consulta;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
 
-        @Override
-        protected void onPostExecute(String s) {
-            cargarRecycler(consulta);
-        }
+    public void cargarLista(List<Alumno> lista){
+        listaAlumnos = new ArrayList<>();
+        listaAlumnos = lista;
+        recyclerAlumno.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new AlumnoAdapter(listaAlumnos);
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               cargarDatos(v);
+            }
+        });
+        recyclerAlumno.setAdapter(adapter);
     }
 
     private void cargarRecycler(String json){
@@ -101,23 +89,15 @@ public class ActivitySWLumen extends AppCompatActivity implements View.OnClickLi
             for (int i = 0; i< alumnos.length() ; i++){
                 JSONObject a = alumnos.getJSONObject(i);
                 Alumno alum = new Alumno();
-                alum.setIdalumno(a.getString("idalumno"));
+                alum.setIdalumno(Integer.parseInt(a.getString("idalumno")));
                 alum.setNombrealumno(a.getString("nombre"));
                 alum.setDireccionalumno(a.getString("direccion"));
                 listaAlumnos.add(alum);
             }
-            adapter = new AlumnoAdapter(listaAlumnos);
-            adapter.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    cargarDatos(v);
-                }
-            });
-            recyclerAlumno.setLayoutManager(new LinearLayoutManager(this));
-            recyclerAlumno.setAdapter(adapter);
-
+            cargarLista(listaAlumnos);
         }catch (Exception ex){
-            Toast.makeText(this,"Hubo error cargar Recycler",Toast.LENGTH_SHORT).show();
+            ex.printStackTrace();
+            Log.e("Mensaje", "Hubo error cargar Recycler");
         }
     }
 
@@ -143,23 +123,74 @@ public class ActivitySWLumen extends AppCompatActivity implements View.OnClickLi
     }
 
     private void cargarDatos(View v){
-        String id = listaAlumnos.get(recyclerAlumno.getChildAdapterPosition(v)).getIdalumno();
+        int id = listaAlumnos.get(recyclerAlumno.getChildAdapterPosition(v)).getIdalumno();
         String nombre= listaAlumnos.get(recyclerAlumno.getChildAdapterPosition(v)).getNombrealumno();
         String direccion = listaAlumnos.get(recyclerAlumno.getChildAdapterPosition(v)).getDireccionalumno();
         cajaId.setText(id+"");
-        cajaNombre.setText(nombre+"");
-        cajaDireccion.setText(direccion+"");
+        cajaNombre.setText(nombre);
+        cajaDireccion.setText(direccion);
+    }
+
+    public void vaciarCampos(){
+        cajaId.setText("");
+        cajaNombre.setText("");
+        cajaDireccion.setText("");
     }
 
     @Override
     public void onClick(View v) {
-        sw = new ServicioWeb();
+        sw = new SWAlumnosHilo();
         switch (v.getId()){
-            case R.id.btnAgregarAlumno:
-                Toast.makeText(ActivitySWLumen.this,"Agregar",Toast.LENGTH_SHORT).show();
-                break;
             case R.id.btnListarTodosAlumnos:
-                sw.execute(host.concat(get),"1");
+                try {
+                    String cadena = sw.execute(host.concat(get), "1").get();
+                    cargarRecycler(cadena);
+                }catch (Exception ex){
+                    Log.e("mesagge","Error x aca");
+                }
+                break;
+            case R.id.btnAgregarAlumno:
+                try {
+                    String name = cajaNombre.getText().toString();
+                    String direction = cajaDireccion.getText().toString();
+                    if (name.length() == 0 || direction.length() == 0) {
+                        Toast.makeText(this, "Por Favor llene todos los campos", Toast.LENGTH_SHORT).show();
+                    } else {
+                        sw.execute(host.concat(insert), "2", name, direction);
+                        vaciarCampos();
+                        Toast.makeText(this, "Guardado con exito", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception ex){
+                    Log.e("mesagge","Error x aca2");
+                }
+                break;
+            case R.id.btnBuscarIdAlumno:
+                try {
+                    String cid = cajaId.getText().toString();
+                    if (cid.length() == 0) {
+                        Toast.makeText(this, "Por Favor llene el campo ID para poder buscar", Toast.LENGTH_SHORT).show();
+                    } else {
+                        String busq = sw.execute(host.concat(getById) + "?idalumno=" + cid, "3").get();
+                        cargarByYD(busq);
+                    }
+                }catch (Exception ex){
+                    Log.e("mesagge","Error x aca3");
+                }
+                break;
+            case R.id.btnEliminarIdAlumno:
+                String id = cajaId.getText().toString();
+                if(id.length() == 0){
+                    Toast.makeText(this,"Por Favor llene el campo ID para poder Eliminar",Toast.LENGTH_SHORT).show();
+                } else {
+                    sw.execute(host.concat(Delete), "4", id);
+                    vaciarCampos();
+                    Toast.makeText(this,"Alumno eliminado con exito",Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.btnModificarAlumno:
+                sw.execute(host.concat(Update),"5", cajaId.getText().toString(),cajaNombre.getText().toString(),cajaDireccion.getText().toString());
+                vaciarCampos();
+                Toast.makeText(this,"Alumno Modificado con exito!!",Toast.LENGTH_SHORT).show();
                 break;
         }
     }

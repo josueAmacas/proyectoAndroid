@@ -127,12 +127,23 @@
             <item
                 android:id="@+id/opcionHilo"
                 android:title="Hilo">
+            </item>
+            <item
+                android:id="@+id/opcionLeerSW"
+                android:title="Ejercicio Leer SW">
 
             </item>
             <item
                 android:id="@+id/opcionVolly"
                 android:title="Volly">
-
+            </item>
+            <item
+                android:id="@+id/opcionUsuarioHilo"
+                android:title="Usuario Hilo">
+            </item>
+            <item
+                android:id="@+id/opcionUsuarioVolly"
+                android:title="Usuario Volly">
             </item>
         </menu>
     </item>

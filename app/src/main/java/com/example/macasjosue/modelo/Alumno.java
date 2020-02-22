@@ -2,24 +2,24 @@ package com.example.macasjosue.modelo;
 
 public class Alumno {
 
-    private String idalumno;
+    private int idalumno;
     private String nombrealumno;
     private String direccionalumno;
 
     public Alumno() {
     }
 
-    public Alumno(String idalumno, String nombrealumno, String direccionalumno) {
+    public Alumno(int idalumno, String nombrealumno, String direccionalumno) {
         this.idalumno = idalumno;
         this.nombrealumno = nombrealumno;
         this.direccionalumno = direccionalumno;
     }
 
-    public String getIdalumno() {
+    public int getIdalumno() {
         return idalumno;
     }
 
-    public void setIdalumno(String idalumno) {
+    public void setIdalumno(int idalumno) {
         this.idalumno = idalumno;
     }
 

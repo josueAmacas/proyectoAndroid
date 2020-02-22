@@ -30,7 +30,7 @@ public class AlumnoAdapter extends RecyclerView.Adapter<AlumnoAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolderAlumno viewHolderAlumno, int position) {
-        viewHolderAlumno.datonId.setText(lista.get(position).getIdalumno());
+        viewHolderAlumno.datonId.setText(lista.get(position).getIdalumno()+"");
         viewHolderAlumno.datonombre.setText(lista.get(position).getNombrealumno());
         viewHolderAlumno.datodireccion.setText(lista.get(position).getDireccionalumno());
     }

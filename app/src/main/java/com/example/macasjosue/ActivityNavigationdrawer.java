@@ -11,8 +11,13 @@ import com.example.macasjosue.Vista.actividades.ActivityCarroORM;
 import com.example.macasjosue.Vista.actividades.ActivityEnvparametros;
 import com.example.macasjosue.Vista.actividades.ActivityFragment2;
 import com.example.macasjosue.Vista.actividades.ActivityLogin;
+import com.example.macasjosue.Vista.actividades.ActivityMapa;
 import com.example.macasjosue.Vista.actividades.ActivityProductohelper;
+import com.example.macasjosue.Vista.actividades.ActivitySWAlumnovolly;
+import com.example.macasjosue.Vista.actividades.ActivitySWHilousuarios;
 import com.example.macasjosue.Vista.actividades.ActivitySWLumen;
+import com.example.macasjosue.Vista.actividades.ActivitySWUsuariovolly;
+import com.example.macasjosue.Vista.actividades.ActivitySWleerjson;
 import com.example.macasjosue.Vista.actividades.ActivitySueldos;
 import com.example.macasjosue.Vista.actividades.ActivitySuma;
 import com.example.macasjosue.Vista.fragmentos.fragmento;
@@ -162,6 +167,26 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements Navig
                 break;
             case R.id.opcionHilo:
                 intent = new Intent(this, ActivitySWLumen.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionLeerSW:
+                intent = new Intent(this, ActivitySWleerjson.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionVolly:
+                intent = new Intent(this, ActivitySWAlumnovolly.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionUsuarioHilo:
+                intent = new Intent(this, ActivitySWHilousuarios.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionUsuarioVolly:
+                intent = new Intent(this, ActivitySWUsuariovolly.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionMapas:
+                intent = new Intent(this, ActivityMapa.class);
                 startActivity(intent);
                 break;
         }

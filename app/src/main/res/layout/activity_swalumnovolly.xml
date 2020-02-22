@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Vista.actividades.ActivitySWLumen">
+    tools:context=".Vista.actividades.ActivitySWAlumnovolly">
 
     <EditText
-        android:id="@+id/txtIdSWHilo"
+        android:id="@+id/txtIdSWVolly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -15,7 +15,7 @@
         android:hint="Ingrese ID" />
 
     <EditText
-        android:id="@+id/txtNombreSWHilo"
+        android:id="@+id/txtNombreSWVolly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -23,7 +23,7 @@
         android:hint="Ingrese Nombre" />
 
     <EditText
-        android:id="@+id/txtDireccionSWHilo"
+        android:id="@+id/txtDireccionSWVolly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -36,21 +36,21 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnAgregarAlumno"
+            android:id="@+id/btnAgregarAlumnoVolly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Agregar" />
 
         <Button
-            android:id="@+id/btnListarTodosAlumnos"
+            android:id="@+id/btnListarTodosAlumnosVolly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Listar T." />
 
         <Button
-            android:id="@+id/btnEliminarTodoalumno"
+            android:id="@+id/btnEliminarTodoalumnoVolly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -63,29 +63,35 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnBuscarIdAlumno"
+            android:id="@+id/btnBuscarIdAlumnoVolly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Buscar ID" />
 
         <Button
-            android:id="@+id/btnModificarAlumno"
+            android:id="@+id/btnModificarAlumnoVolly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Modificar" />
 
         <Button
-            android:id="@+id/btnEliminarIdAlumno"
+            android:id="@+id/btnEliminarIdAlumnoVolly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Eliminar ID" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/lblDatosVolly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerAlumnos"
+        android:id="@+id/recyclerAlumnosVolly"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
