@@ -2,7 +2,6 @@ package com.example.macasjosue;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import com.example.macasjosue.Examen.ActivityExamennotas;
@@ -18,11 +17,12 @@ import com.example.macasjosue.Vista.actividades.ActivitySWHilousuarios;
 import com.example.macasjosue.Vista.actividades.ActivitySWLumen;
 import com.example.macasjosue.Vista.actividades.ActivitySWUsuariovolly;
 import com.example.macasjosue.Vista.actividades.ActivitySWleerjson;
+import com.example.macasjosue.Vista.actividades.ActivitySensoresAcelerometro;
+import com.example.macasjosue.Vista.actividades.ActivitySensoresluz;
+import com.example.macasjosue.Vista.actividades.ActivitySensoresproximidad;
 import com.example.macasjosue.Vista.actividades.ActivitySueldos;
 import com.example.macasjosue.Vista.actividades.ActivitySuma;
 import com.example.macasjosue.Vista.fragmentos.fragmento;
-import com.example.macasjosue.ui.gallery.GalleryFragment;
-import com.example.macasjosue.ui.pincipal.PrincipalFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -31,8 +31,6 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -187,6 +185,18 @@ public class ActivityNavigationdrawer extends AppCompatActivity implements Navig
                 break;
             case R.id.opcionMapas:
                 intent = new Intent(this, ActivityMapa.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionAcelerometro:
+                intent = new Intent(this, ActivitySensoresAcelerometro.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionProximidad:
+                intent = new Intent(this, ActivitySensoresproximidad.class);
+                startActivity(intent);
+                break;
+            case R.id.opcionLuz:
+                intent = new Intent(this, ActivitySensoresluz.class);
                 startActivity(intent);
                 break;
         }

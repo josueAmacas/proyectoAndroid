@@ -72,45 +72,44 @@ public class ActivityMapa extends FragmentActivity implements OnMapReadyCallback
                 .position(loja)
                 .title("Inicio Ruta")
                 .snippet("Inicio de la ruta a la UNL desde CV")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_casa_foreground)).anchor(0.5f,0.5f));
+
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(-4.001239, -79.233744))
                 .title("Canchas Deportivas")
                 .snippet("Canchas deportivas de Ciudad Victoria")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_cacncha)).anchor(0.5f,0.5f));
 
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(-4.019215,-79.229116))
                 .title("Urna Virgen del Cisne")
                 .snippet("Urna de la Santisima Virgen del Cisne")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_urna_foreground)).anchor(0.5f,0.5f));
 
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng( -4.025321, -79.218880))
                 .title("Cementerio")
                 .snippet("Campo Santo Jardines del Zamora")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_cementerio)).anchor(0.5f,0.5f));
 
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng( -4.032247, -79.211953))
                 .title("Capilla")
                 .snippet("Capilla del Monasterio de Santa Clara del Divino Niño")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_marcador_foreground)).anchor(0.5f,0.5f));
 
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng( -4.032740, -79.202151))
                 .title("Parada de Buses")
                 .snippet("Parada de Buses Linea L2(Sauces-Argelia)")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_parada)).anchor(0.5f,0.5f));
 
 
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(-4.030316,-79.199482))
                 .title("Fin Ruta")
                 .snippet("Fin de la ruta a la UNL")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-
-
+                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher_foreground)).anchor(0.5f,0.5f));
     }
 
     private void lineas() {

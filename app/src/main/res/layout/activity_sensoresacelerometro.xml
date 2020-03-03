@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Vista.actividades.ActivitySensoresAcelerometro">
+
+
+    <TextView
+        android:id="@+id/lblSensorX"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sensor X" />
+
+    <TextView
+        android:id="@+id/lblSensorY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sensor Y" />
+
+    <TextView
+        android:id="@+id/lblSensorZ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sensor Z" />
+</LinearLayout>
