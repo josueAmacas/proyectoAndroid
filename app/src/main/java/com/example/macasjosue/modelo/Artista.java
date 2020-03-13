@@ -7,7 +7,16 @@ public class Artista {
     private String apellidos;
     private String nombreArtistico;
     private int foto;
+    private String pathFoto;
     private String fechaNacimiento;
+
+    public String getPathFoto() {
+        return pathFoto;
+    }
+
+    public void setPathFoto(String pathFoto) {
+        this.pathFoto = pathFoto;
+    }
 
     public String getNombres() {
         return nombres;

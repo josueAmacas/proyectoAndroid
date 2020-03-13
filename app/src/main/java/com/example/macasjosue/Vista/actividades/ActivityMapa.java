@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.macasjosue.R;
+import com.example.macasjosue.Vista.adapter.InfowindowsAdapter;
 import com.example.macasjosue.modelo.RutaMapa;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -68,6 +69,9 @@ public class ActivityMapa extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void marcadores(){
+
+        mMap.setInfoWindowAdapter(new InfowindowsAdapter(this));
+
         mMap.addMarker(new MarkerOptions()
                 .position(loja)
                 .title("Inicio Ruta")

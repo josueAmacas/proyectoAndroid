@@ -60,7 +60,8 @@ public class frgMemoriainterna extends Fragment implements View.OnClickListener 
     RecyclerView recyclerViewMI;
     ArtistaAdapter adapter;
     List<Artista> listaArtista;
-    String lineas;
+    String lineas, stringFoto;
+
 
     /**
      * Use this factory method to create a new instance of
@@ -120,7 +121,7 @@ public class frgMemoriainterna extends Fragment implements View.OnClickListener 
             artista.setApellidos(lista[1]);
             artista.setNombreArtistico(lista[2]);
             artista.setFechaNacimiento(lista[3]);
-            artista.setFoto(Integer.parseInt(lista[4]));
+            artista.setPathFoto(Uri.parse(lista[4]).toString());
             listaArtista.add(artista);
         }
 
@@ -165,7 +166,9 @@ public class frgMemoriainterna extends Fragment implements View.OnClickListener 
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == getActivity().RESULT_OK){
             Uri path = data.getData();
+             stringFoto = path.toString();
             fotoCargada.setImageURI(path);
+            //datos.setText(stringFoto);
         }
     }
 
